@@ -1,0 +1,40 @@
+.template5 {
+    &__wrapper {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+    }
+    height: 29.7mm;
+    width: 210mm;
+    font-size: 1rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__left {
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__right {
+        width: 80%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    &__image {
+        height: 20mm;
+    }
+  
+    &__vocabulary {
+        font-family: "Print Lined", sans-serif;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        margin: .5rem 0;
+    }
+  }

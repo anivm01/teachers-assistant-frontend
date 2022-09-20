@@ -1,0 +1,32 @@
+.template5-preview {
+    height: 29.7px;
+    width: 210px;
+    font-size: .25rem;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__left {
+        width: 25%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__right {
+        width: 75%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    &__image {
+        height: 20px;
+    }
+  
+    &__vocabulary {
+        font-family: "Print Arrow Dot Line", sans-serif;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        font-size: .25rem;
+    }
+  }

@@ -1,0 +1,42 @@
+.template4 {
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    height: 49.5mm;
+    width: 210mm;
+    font-size: 1.5rem;
+    font-weight: 300;
+    padding: 0 2rem;
+    margin: 0 auto;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__left {
+        width: 25%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__right {
+        width: 75%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    &__image {
+        max-height: 80%;
+        max-width: 80%;
+    }
+  
+    &__vocabulary {
+        font-family: "Print Lined", sans-serif;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        margin: 0;
+    }
+  }

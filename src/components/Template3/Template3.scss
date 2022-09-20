@@ -1,0 +1,37 @@
+.template3 {
+    height: 148.5mm;
+    width: 105mm;
+    font-size: 2rem;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-basis: 50%;
+    &__top {
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__bottom {
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__image {
+        max-height: 80%;
+        max-width: 80%;
+    }
+    &__divider {
+        height: 0;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        width: 100%;
+    }
+    &__vocabulary {
+        font-family: "Print Regular", sans-serif;
+        transform: rotate(-180deg);
+    }
+  }

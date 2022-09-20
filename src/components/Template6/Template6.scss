@@ -1,0 +1,24 @@
+.template6 {
+    &__wrapper {
+        width: 210mm;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    height: 74.25mm;
+    width: 70mm;
+    font-size: 1rem;
+    border: 1px solid black;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    &__image {
+        max-height: 60%;
+    }
+    &__vocabulary {
+        margin: .5rem 0;
+        font-family: "Print Regular", sans-serif;
+    }
+  }

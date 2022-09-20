@@ -1,0 +1,35 @@
+.template2-preview {
+    height: 148.5px;
+    width: 210px;
+    font-size: 1rem;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__left {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__right {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__image {
+        height: 90px;
+        transform: rotate(-90deg);
+    }
+    &__divider {
+        height: 100%;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+        width: 0;
+    }
+    &__vocabulary {
+        font-family: "Print Regular", sans-serif;
+        transform: rotate(90deg);
+    }
+  }

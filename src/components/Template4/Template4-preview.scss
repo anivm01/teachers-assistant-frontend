@@ -1,0 +1,35 @@
+.template4-preview {
+    height: 49.5px;
+    width: 210px;
+    font-size: .5rem;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 52.5px 157.5px;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    &__left {
+        width: 80%;
+    }
+
+    &__right {
+        width: 95%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-self: start;
+    }
+    &__image {
+        max-height: 30px;
+    }
+  
+    &__vocabulary {
+        font-family: "Print Lined", sans-serif;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        margin: 0;
+    }
+  }

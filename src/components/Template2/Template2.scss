@@ -1,0 +1,38 @@
+.template2 {
+    height: 148.5mm;
+    width: 210mm;
+    font-size: 2.5rem;
+    line-height: 3rem;
+    margin: 0 auto;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__left {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__right {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__image {
+        height: 80%;
+        max-width: 80%;
+        transform: rotate(-90deg);
+    }
+    &__divider {
+        height: 100%;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+        width: 0;
+    }
+    &__vocabulary {
+        font-family: "Print Regular", sans-serif;
+        transform: rotate(90deg);
+    }
+  }
