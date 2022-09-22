@@ -46,9 +46,8 @@ function Upload({
   return (
     <>
     <form onSubmit={onSubmit} className="upload">
-      <div className="upload__inputs">
       <label className="upload__image-label">
-        <span className="upload__label">Image: </span> {imgFileName}
+        Image: <span className="upload__file-name">{imgFileName}</span>
           <img
             className="upload__custom-image-input"
             src={addImage}
@@ -62,8 +61,9 @@ function Upload({
             accept="image/png, image/jpg, image/gif, image/jpeg"
           />
         </label>
+        <div className="upload__bottom">
         <label className="upload__text-label">
-          <span className="upload__label">Vocabulary:</span>
+          Vocabulary:
           <input
             className="upload__text-input"
             type="text"
@@ -71,9 +71,9 @@ function Upload({
             value={textInput || ""}
             onChange={onVocabularyChange}
           />
-        </label>        
-      </div>
-      <input className="upload__submit" type="submit" />
+        </label>  
+          <input className="upload__submit" type="submit" />
+        </div>
     </form>
     {uploadError && (
             <p className="upload__error">
