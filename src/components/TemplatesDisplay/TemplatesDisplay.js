@@ -61,8 +61,8 @@ function TemplatesDisplay({ templateContents }) {
   };
 
   const changePdfName = (event) => {
-    setPdfName(event.target.value)
-  }
+    setPdfName(event.target.value);
+  };
   const [displayTemplate1, setDisplayTemplate1] = useState(false);
   const [displayTemplate2, setDisplayTemplate2] = useState(false);
   const [displayTemplate3, setDisplayTemplate3] = useState(false);
@@ -70,7 +70,7 @@ function TemplatesDisplay({ templateContents }) {
   const [displayTemplate5, setDisplayTemplate5] = useState(false);
   const [displayTemplate6, setDisplayTemplate6] = useState(false);
   const [smallSizePreview, setSmallSizePreview] = useState(true);
-  const [pdfName, setPdfName] = useState("")
+  const [pdfName, setPdfName] = useState("");
   const [twoLines, setTwoLines] = useState(false);
 
   function handleGetPDF(pdfName) {
@@ -133,7 +133,7 @@ function TemplatesDisplay({ templateContents }) {
                       image={single.image}
                       key={index}
                       word={single.word}
-                      templateClass={"template2"}
+                      templateClass={"template2-preview"}
                     />
                   );
                 })}
@@ -144,6 +144,7 @@ function TemplatesDisplay({ templateContents }) {
           <div className="select__wrapper">
             <button className="select__button">
               <img
+                onClick={previewFullSizeOption3}
                 className="select__view-more"
                 src={plusIcon}
                 alt="view more"
@@ -169,6 +170,7 @@ function TemplatesDisplay({ templateContents }) {
           <div className="select__wrapper">
             <button className="select__button">
               <img
+                onClick={previewFullSizeOption4}
                 className="select__view-more"
                 src={plusIcon}
                 alt="view more"
@@ -194,6 +196,7 @@ function TemplatesDisplay({ templateContents }) {
           <div className="select__wrapper">
             <button className="select__button">
               <img
+                onClick={previewFullSizeOption5}
                 className="select__view-more"
                 src={plusIcon}
                 alt="view more"
@@ -219,6 +222,7 @@ function TemplatesDisplay({ templateContents }) {
           <div className="select__wrapper">
             <button className="select__button">
               <img
+                onClick={previewFullSizeOption6}
                 className="select__view-more"
                 src={plusIcon}
                 alt="view more"
@@ -245,15 +249,27 @@ function TemplatesDisplay({ templateContents }) {
       )}
       {displayTemplate1 && (
         <>
-        <div className="select__print-nav">
-          <button className="select__print" onClick={()=>{handleGetPDF(pdfName)}}>
-            <img className="select__print-icon" src={printIcon} alt="print" />
-          </button>
-          <input className="select__pdf-name" type="text" name="pdf-name" value={pdfName} onChange={changePdfName} placeholder="Name your pdf"/>
-        <button className="select__print" onClick={closePrintPreview}>
-            <img className="select__print-icon" src={closeIcon} alt="print" />
-          </button>
-        </div>
+          <div className="select__print-nav">
+            <button
+              className="select__print"
+              onClick={() => {
+                handleGetPDF(pdfName);
+              }}
+            >
+              <img className="select__print-icon" src={printIcon} alt="print" />
+            </button>
+            <input
+              className="select__pdf-name"
+              type="text"
+              name="pdf-name"
+              value={pdfName}
+              onChange={changePdfName}
+              placeholder="Name your pdf"
+            />
+            <button className="select__print" onClick={closePrintPreview}>
+              <img className="select__print-icon" src={closeIcon} alt="print" />
+            </button>
+          </div>
           <div className="select__preview">
             <div ref={docToPrint} className="select__full-view">
               {templateContents.map((single, index) => {
@@ -272,15 +288,27 @@ function TemplatesDisplay({ templateContents }) {
       )}
       {displayTemplate2 && (
         <>
-        <div className="select__print-nav">
-          <button className="select__print" onClick={()=>{handleGetPDF(pdfName)}}>
-            <img className="select__print-icon" src={printIcon} alt="print" />
-          </button>
-          <input className="select__pdf-name" type="text" name="pdf-name" value={pdfName} onChange={changePdfName} placeholder="Name your pdf"/>
-        <button className="select__print" onClick={closePrintPreview}>
-            <img className="select__print-icon" src={closeIcon} alt="print" />
-          </button>
-        </div>
+          <div className="select__print-nav">
+            <button
+              className="select__print"
+              onClick={() => {
+                handleGetPDF(pdfName);
+              }}
+            >
+              <img className="select__print-icon" src={printIcon} alt="print" />
+            </button>
+            <input
+              className="select__pdf-name"
+              type="text"
+              name="pdf-name"
+              value={pdfName}
+              onChange={changePdfName}
+              placeholder="Name your pdf"
+            />
+            <button className="select__print" onClick={closePrintPreview}>
+              <img className="select__print-icon" src={closeIcon} alt="print" />
+            </button>
+          </div>
           <div className="select__preview">
             <div ref={docToPrint} className="select__full-view">
               {templateContents.map((single, index) => {
@@ -290,6 +318,165 @@ function TemplatesDisplay({ templateContents }) {
                     key={index}
                     word={single.word}
                     templateClass={"template2"}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        </>
+      )}
+      {displayTemplate3 && (
+        <>
+          <div className="select__print-nav">
+            <button
+              className="select__print"
+              onClick={() => {
+                handleGetPDF(pdfName);
+              }}
+            >
+              <img className="select__print-icon" src={printIcon} alt="print" />
+            </button>
+            <input
+              className="select__pdf-name"
+              type="text"
+              name="pdf-name"
+              value={pdfName}
+              onChange={changePdfName}
+              placeholder="Name your pdf"
+            />
+            <button className="select__print" onClick={closePrintPreview}>
+              <img className="select__print-icon" src={closeIcon} alt="print" />
+            </button>
+          </div>
+          <div className="select__preview">
+            <div
+              ref={docToPrint}
+              className="select__full-view select__full-view--3"
+            >
+              {templateContents.map((single, index) => {
+                return (
+                  <Template3
+                    image={single.image}
+                    key={index}
+                    word={single.word}
+                    templateClass={"template3"}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        </>
+      )}
+      {displayTemplate4 && (
+        <>
+          <div className="select__print-nav">
+            <button
+              className="select__print"
+              onClick={() => {
+                handleGetPDF(pdfName);
+              }}
+            >
+              <img className="select__print-icon" src={printIcon} alt="print" />
+            </button>
+            <input
+              className="select__pdf-name"
+              type="text"
+              name="pdf-name"
+              value={pdfName}
+              onChange={changePdfName}
+              placeholder="Name your pdf"
+            />
+            <button className="select__print" onClick={closePrintPreview}>
+              <img className="select__print-icon" src={closeIcon} alt="print" />
+            </button>
+          </div>
+          <div className="select__preview">
+            <div ref={docToPrint} className="select__full-view">
+              {templateContents.map((single, index) => {
+                return (
+                  <Template4
+                    image={single.image}
+                    key={index}
+                    word={single.word}
+                    templateClass={"template4"}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        </>
+      )}
+      {displayTemplate5 && (
+        <>
+          <div className="select__print-nav">
+            <button
+              className="select__print"
+              onClick={() => {
+                handleGetPDF(pdfName);
+              }}
+            >
+              <img className="select__print-icon" src={printIcon} alt="print" />
+            </button>
+            <input
+              className="select__pdf-name"
+              type="text"
+              name="pdf-name"
+              value={pdfName}
+              onChange={changePdfName}
+              placeholder="Name your pdf"
+            />
+            <button className="select__print" onClick={closePrintPreview}>
+              <img className="select__print-icon" src={closeIcon} alt="print" />
+            </button>
+          </div>
+          <div className="select__preview">
+            <div ref={docToPrint} className="select__full-view">
+              {templateContents.map((single, index) => {
+                return (
+                  <Template5
+                    image={single.image}
+                    key={index}
+                    word={single.word}
+                    templateClass={"template5"}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        </>
+      )}
+      {displayTemplate6 && (
+        <>
+          <div className="select__print-nav">
+            <button
+              className="select__print"
+              onClick={() => {
+                handleGetPDF(pdfName);
+              }}
+            >
+              <img className="select__print-icon" src={printIcon} alt="print" />
+            </button>
+            <input
+              className="select__pdf-name"
+              type="text"
+              name="pdf-name"
+              value={pdfName}
+              onChange={changePdfName}
+              placeholder="Name your pdf"
+            />
+            <button className="select__print" onClick={closePrintPreview}>
+              <img className="select__print-icon" src={closeIcon} alt="print" />
+            </button>
+          </div>
+          <div className="select__preview">
+            <div ref={docToPrint} className="select__full-view select__full-view--6">
+              {templateContents.map((single, index) => {
+                return (
+                  <Template6
+                    image={single.image}
+                    key={index}
+                    word={single.word}
+                    templateClass={"template6"}
                   />
                 );
               })}

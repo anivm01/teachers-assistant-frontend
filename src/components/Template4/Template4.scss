@@ -1,35 +1,31 @@
 .template4 {
-    &__wrapper {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-    }
+    color: black;
+    background-color: white;
     height: 49.5mm;
     width: 210mm;
-    font-size: 1.5rem;
-    font-weight: 300;
-    padding: 0 2rem;
-    margin: 0 auto;
+    font-size: 1rem;
     border: 1px solid black;
-    display: flex;
+    display: grid;
+    grid-template-columns: 52.5mm 157.5mm;
     justify-content: center;
+    justify-items: center;
     align-items: center;
+    align-content: center;
     &__left {
-        width: 25%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        width: 80%;
     }
+
     &__right {
-        width: 75%;
+        width: 95%;
         display: flex;
         justify-content: flex-start;
         align-items: center;
         flex-wrap: wrap;
+        justify-self: start;
     }
     &__image {
-        max-height: 80%;
-        max-width: 80%;
+        max-height: 30mm;
+        max-width: 40mm;
     }
   
     &__vocabulary {

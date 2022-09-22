@@ -77,6 +77,16 @@
       &__full-view {
         width: 210mm;
         margin: 0 auto;
+        &--3{
+          display: grid;
+          grid-template-columns: 105mm 105mm;
+        }
+        &--6{
+          display: grid;
+          grid-template-columns: 70mm 70mm 70mm;
+          grid-template-rows: 74.25mm 74.25mm 74.25mm 74.25mm;
+          gap: 0;
+        }
       }
       &__print-nav {
         display: flex;

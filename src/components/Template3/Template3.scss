@@ -1,13 +1,14 @@
 .template3 {
+    background-color: white;
     height: 148.5mm;
     width: 105mm;
-    font-size: 2rem;
+    font-size: 1.25rem;
     border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    flex-basis: 50%;
+    color: black;
     &__top {
         height: 50%;
         display: flex;
@@ -21,13 +22,12 @@
         align-items: center;
     }
     &__image {
-        max-height: 80%;
-        max-width: 80%;
+        max-height: 60mm;
+        max-width: 90mm;
     }
     &__divider {
         height: 0;
         border-top: 1px solid black;
-        border-bottom: 1px solid black;
         width: 100%;
     }
     &__vocabulary {

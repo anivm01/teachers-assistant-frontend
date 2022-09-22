@@ -1,21 +1,18 @@
 .template6 {
-    &__wrapper {
-        width: 210mm;
-        margin: 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-    }
+    color: black;
+    background-color: white;
     height: 74.25mm;
     width: 70mm;
     font-size: 1rem;
     border: 1px solid black;
     margin: 0;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     flex-direction: column;
     &__image {
-        max-height: 60%;
+        max-height: 50mm;
+        max-width: 50mm;
     }
     &__vocabulary {
         margin: .5rem 0;
