@@ -11,7 +11,6 @@ function Template1({ templateClass, image, word }) {
                 className={`${templateClass}__image`}
               />
             </div>
-            <div className={`${templateClass}__divider`}></div>
             <div className={`${templateClass}__bottom`}>
               <h2 className={`${templateClass}__vocabulary`}>{word}</h2>
             </div>

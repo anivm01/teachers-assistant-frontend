@@ -11,16 +11,15 @@ function Upload({
 }) {
   const [textInput, setTextInput] = useState("");
   const [imageURL, setImageURL] = useState("");
-  const [imgFileName, setImgFileName] = useState("Choose an image to upload");
+  const [imgFileName, setImgFileName] = useState("");
   const [uploadError, setUploadError] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
 
   const onVocabularyChange = (event) => {
     setTextInput(event.target.value);
   };
   const onImageChange = (event) => {
     setImageURL(URL.createObjectURL(event.target.files[0]));
-    setImgFileName(event.target.files[0].name)
+    setImgFileName(event.target.files[0].name);
   };
   const onSubmit = (event) => {
     event.preventDefault();
@@ -28,74 +27,60 @@ function Upload({
       setUploadError(true);
       return;
     }
-    if (submitted) {
-      return;
-    }
     const newContent = {
       image: imageURL,
       word: textInput,
+      imageFile: imgFileName,
       id: index,
     };
     setUploadError(false);
     setTemplateContents([...templateContents, newContent]);
     setUploadFields([...uploadFields, uploadFields.length]);
-    setSubmitted(true);
-    console.log(imgFileName)
+    console.log(imgFileName);
+    setImageURL("")
+    setImgFileName("")
+    setTextInput("")
+    event.target.reset()
   };
 
-  const remove = (i) => {
-    if (!imageURL || !textInput) {
-      return;
-    }
-    let newUploadFields = [...uploadFields];
-    newUploadFields.splice(i, 1);
-    setUploadFields(newUploadFields);
-    let newTemplateContents = [...templateContents];
-    newTemplateContents.splice(i, 1);
-    setTemplateContents(newTemplateContents);
-    setSubmitted(false);
-    setTextInput("");
-  };
   return (
+    <>
     <form onSubmit={onSubmit} className="upload">
-      <label className="upload__text-label">
-        Add a word or phrase
-        <input
-          className="upload__text-input"
-          type="text"
-          name="vocabulary"
-          value={textInput || ""}
-          onChange={onVocabularyChange}
-        />
-      </label>
+      <div className="upload__inputs">
       <label className="upload__image-label">
-        {imgFileName}
-        <img
-          className="upload__custom-image-input"
-          src={addImage}
-          alt="add new icon"
-        />
-        <input
-          className="upload__image-input"
-          type="file"
-          name="image"
-          onChange={onImageChange}
-          accept="image/png, image/jpg, image/gif, image/jpeg"
-        />
-      </label>
-      {!submitted && <input className="upload__submit" type="submit" />
-        }
-      {submitted && (
-        <button type="button" onClick={() => remove(index)}>
-          reset
-        </button>
-      )}
-      <p>
-        {uploadError
-          ? "You must input both an image and text for these templates"
-          : ""}
-      </p>
+        <span className="upload__label">Image: </span> {imgFileName}
+          <img
+            className="upload__custom-image-input"
+            src={addImage}
+            alt="add new icon"
+          />
+          <input
+            className="upload__image-input"
+            type="file"
+            name="image"
+            onChange={onImageChange}
+            accept="image/png, image/jpg, image/gif, image/jpeg"
+          />
+        </label>
+        <label className="upload__text-label">
+          <span className="upload__label">Vocabulary:</span>
+          <input
+            className="upload__text-input"
+            type="text"
+            name="vocabulary"
+            value={textInput || ""}
+            onChange={onVocabularyChange}
+          />
+        </label>        
+      </div>
+      <input className="upload__submit" type="submit" />
     </form>
+    {uploadError && (
+            <p className="upload__error">
+              "You must input both an image and text for these templates"
+            </p>
+    )}
+    </>
   );
 }
 

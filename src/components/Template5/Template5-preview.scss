@@ -1,4 +1,5 @@
 .template5-preview {
+    background-color: white;
     height: 29.7px;
     width: 210px;
     font-size: .25rem;
@@ -17,9 +18,11 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
+        margin-right: 1rem;
     }
     &__image {
-        height: 20px;
+        max-height: 20px;
+        max-width: 30px;
     }
   
     &__vocabulary {

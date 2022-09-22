@@ -1,37 +1,33 @@
+@use "../../fonts/fonts";
+
 .template1 {
-    height: 297mm;
-    width: 210mm;
-    font-size: 4rem;
-    border: 1px solid black;
+    font-size: 3rem;
+    color: black;
     margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 210mm;
+    grid-template-rows: 148.5mm 148.5mm;
+    background-color: white;
+
     &__top {
-        height: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
+        border-bottom: 1px solid black;
     }
     &__bottom {
-        height: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
+        border-bottom: 1px solid black;
     }
     &__image {
-        height: 130mm;
-    }
-    &__divider {
-        width: 100%;
-        border-top: 1px solid black;
-        border-bottom: 1px solid black;
-        height: 0;
-
+        max-width: 190mm;
+        max-height: 135mm;
     }
     &__vocabulary {
         font-family: "Print Regular", sans-serif;
         transform: rotate(-180deg);
+        margin: 0;
     }
-}
+  }

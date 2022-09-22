@@ -1,28 +1,61 @@
+@use "../../partials/breakpoints"as*;
+
 .upload {
-    border: 1px solid black;
     display: grid;
-    gap: 1rem;
-    padding: 1rem;
+    padding: .5rem 1rem;
     max-width: 25rem;
-    margin: 0 auto;
+    margin: 1rem auto;
+    @include tablet {
+        max-width: 30rem;
+    }
+    &__inputs {
+        border-radius: 2.1875rem;
+        background: linear-gradient(180deg, rgba(166,248,255,1) 0%, rgba(47,167,224,1) 100%);
+        box-shadow: inset 0 0 2rem -.5rem #E6F6FC;
+        display: grid;
+        gap: 1rem;
+        padding: 2rem 1rem;
+    }
+    &__text-label {
+        display: flex;
+        color: #E6F6FC;
+    }
+    &__label {
+        font-family: filmotype-austin,sans-serif;
+        font-weight: 400;  
+        font-size: 1rem;
+        text-decoration: underline;
+        margin-right: 1rem;
+        @include tablet {
+            font-size: 1.5rem;
+        }
 
-
+    }
     &__text-input {
         font-family: Print Regular,sans-serif;
-        font-size: 1.5rem;
+        font-size: 1rem;
         font-weight: bold;
-        height: 2rem;
-        padding: 1rem;
+        padding: .5rem;
+        text-align: center;
         border: none;
-        border-bottom: 1px solid black;
+        border-radius: 35px;
+        border-bottom: 4px solid #E6F6FC;
         width: 100%;
+        background-color: #E6F6FC;
+        @include tablet {
+            font-size: 1.5rem;
+        }
         &:focus {
             outline-color: transparent;
+            outline: none;
+            background-color: #E6F6FC;
         }
-        // box-shadow: inset 0 0 2rem #A6F8FF;
-        // box-shadow: 0 0 2rem #A6F8FF;
+        &:active {
+            outline-color: transparent;
+            outline: none;
+            background-color: #E6F6FC;
+        }
     }
-
     &__image-input{
         width: 0;
         height: 0;
@@ -33,20 +66,33 @@
     &__image-label {
         cursor: pointer;
         display: flex;
-        align-items: center;
-        justify-content: center;
         margin: 0 auto;
         width: 100%;
+        color: #2FA7E0;
     }
     &__custom-image-input {
         height: 2rem;
         width: 2rem;
         margin-left: auto;
+        @include tablet {
+            height: 3rem;
+            width: 3rem;
+        }
     }
-
     &__submit {
-        height: 2rem;
+        height: 2.5rem;
         border-radius: 2.1875rem;
         border: none;
+        background-image: url("../../assets/svg/add-icon.svg");
+        background-repeat: no-repeat;
+        background-position: right;
+        justify-self: center;
+        width: 2.5rem;
+        color: transparent;
+        cursor: pointer;
+    }
+    
+    &__error {
+        font-family: filmotype-austin,sans-serif;
     }
 }

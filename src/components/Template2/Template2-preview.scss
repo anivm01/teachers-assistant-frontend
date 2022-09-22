@@ -1,4 +1,5 @@
 .template2-preview {
+    background-color: white;
     height: 148.5px;
     width: 210px;
     font-size: 1rem;
@@ -19,7 +20,8 @@
         align-items: center;
     }
     &__image {
-        height: 90px;
+        max-height: 90px;
+        max-width: 120px;
         transform: rotate(-90deg);
     }
     &__divider {

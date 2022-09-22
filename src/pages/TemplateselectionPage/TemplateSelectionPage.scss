@@ -1,39 +1,9 @@
-@use "../../partials/breakpoints" as*;
+@use "../../partials/breakpoints" as *;
 
 .select {
-    &__display {
-        margin: 1rem;
-        display: grid;
-        gap: 1rem;
-        grid-template-rows: 297px 297px 297px 297px 297px 297px;
-        grid-template-columns: 210px;
-        justify-content: center;
-        @include tablet {
-            margin: 2rem;
-            grid-template-columns: 210px 210px;
-            grid-template-rows: 297px 297px 297px;
-            gap: 1.5rem;
-        }
-        @include desktop {
-            width: 63.75rem;
-            gap: 2rem;
-            grid-template-columns: 210px 210px 210px;
-            grid-template-rows: 297px 297px;
-        }
-    }
-    &__option {
-        overflow: scroll;
+    @include desktop {
+        max-width: 63.75rem;
         margin: 0 auto;
-        &--3{
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-        }
-        &--6 {
-            display: grid;
-            grid-template-columns: 70px 70px 70px;
-            grid-template-rows: 74.25px 74.25px 74.25px 74.25px;
-            gap: 0;
-            margin: 0;
-        }
     }
 }
+

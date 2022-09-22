@@ -4,7 +4,6 @@ import TemplateSelectionPage from './pages/TemplateselectionPage/TemplateSelecti
 function App() {
   return (
     <div className="App">
-      <h1>Hello</h1>
       <TemplateSelectionPage />
     </div>
   );

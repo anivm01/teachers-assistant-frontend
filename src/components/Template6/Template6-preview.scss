@@ -1,15 +1,17 @@
 .template6-preview {
+    background-color: white;
     height: 74.25px;
     width: 70px;
     font-size: .25rem;
     border: 1px solid black;
     margin: 0;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     flex-direction: column;
     &__image {
-        max-height: 60%;
+        max-height: 50px;
+        max-width: 50px;
     }
     &__vocabulary {
         margin: .25rem 0;

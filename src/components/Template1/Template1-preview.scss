@@ -1,41 +1,28 @@
 @use "../../fonts/fonts";
 
 .template1-preview {
-    // height: 297px;
-    // width: 210px;
     font-size: 1rem;
-    border: 1px solid black;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 210px;
-    grid-template-rows: 148.5px 0 148.5px;
+    grid-template-rows: 148.5px 148.5px;
+    background-color: white;
 
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    // flex-direction: column;
     &__top {
         display: flex;
         justify-content: center;
         align-items: center;
+        border-bottom: 1px solid black;
     }
     &__bottom {
         display: flex;
         justify-content: center;
         align-items: center;
+        border-bottom: 1px solid black;
     }
     &__image {
         max-width: 190px;
         max-height: 135px;
-    }
-    &__divider {
-        width: 100%;
-        border-top: 1px solid black;
-        border-bottom: 1px solid black;
-        height: 0;
-        margin: 0;
-        padding: 0;
-  
     }
     &__vocabulary {
         font-family: "Print Regular", sans-serif;

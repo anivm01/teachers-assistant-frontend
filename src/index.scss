@@ -1,23 +1,34 @@
+@use "./partials/breakpoints"as*;
+
 *, *::after, *::before {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: Print Regular,sans-serif;
+  font-family: filmotype-austin,sans-serif;
   font-weight: bold;
   font-style: normal;
+  color: #29369D;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  // background-color: #E6F6FC;
   background: linear-gradient(180deg, rgba(166,248,255,1) 0%, rgba(47,167,224,1) 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 h1 {
-  font-family: Delaney ,sans-serif;
+  font-size: 2rem;
+  font-family: filmotype-austin,sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  @include tablet {
+    font-size: 2.5rem;
+  }
+}
+h2 {
+  font-family: filmotype-austin,sans-serif;
   font-weight: 800;
   font-style: normal;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
