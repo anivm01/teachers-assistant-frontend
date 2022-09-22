@@ -1,0 +1,102 @@
+@use "../../partials/breakpoints" as *;
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 1rem;
+  &__logo {
+    margin: 1rem 0;
+    height: 3rem;
+    width: 3rem;
+    @include tablet {
+      height: 4rem;
+      width: 5rem;
+    }
+    @include desktop {
+      height: 6rem;
+      width: 6rem;
+    }
+  }
+  &__cta {
+    padding: .5rem 1rem;
+    margin: 1rem 0;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.5rem;
+    width: 100%;
+    background-color: #F5D84D;
+    color: #29369D;
+    border-radius: 2.1875rem;
+    @include tablet {
+        max-width: 12.5rem;
+    }
+  }
+  &__hero {
+    display: flex;
+        align-items: center;
+        flex-direction: column;
+    @include desktop {
+        max-width: 63.75rem;
+        flex-direction: row;
+        align-items: center;
+    }
+  }
+  &__img {
+    margin: 1rem auto;
+    height: 60vh;
+    max-height: 50vw;
+    @include desktop {
+        height: 20rem;
+    }
+  }
+  &__step {
+      display: flex;
+    flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+    margin: 1rem;
+    border-radius: 2.1875rem;
+    background: linear-gradient(
+      180deg,
+      rgba(166, 248, 255, 1) 0%,
+      rgba(47, 167, 224, 1) 100%
+    );
+    box-shadow: inset 0 0 2rem -0.5rem #e6f6fc;
+    height: fit-content;
+    @include tablet {
+      margin: 2rem;
+    }
+    @include desktop {
+      max-width: 20rem;
+    }
+    &--align-right {
+        align-items: flex-start;
+    }
+  }
+  &__step-img {
+    height: 4rem;
+    width: 4rem;
+    @include tablet {
+      height: 6rem;
+      width: 6rem;
+    }
+    &--align-right {
+        margin-right: 1rem;
+        @include tablet {
+            height: 5rem;
+            width: 5rem;
+        }
+    }
+    &--last{
+        margin: 0;
+    }
+  }
+  &__step-text {
+    &--align-right {
+        text-align: end;
+    }
+  }
+}

@@ -1,8 +1,7 @@
 @use "../../partials/breakpoints" as *;
 
 .so-far {
-  max-width: 25rem;
-  margin: 1rem;
+  margin: 1rem ;
   padding: 1rem;
   color: #e6f6fc;
   border-radius: 2.1875rem;
@@ -13,10 +12,11 @@
   );
   box-shadow: inset 0 0 2rem -0.5rem #e6f6fc;
   @include tablet {
-    max-width: 30rem;
-  }
+    padding: 2rem;
+    margin: 2rem;
+}
   @include desktop {
-    max-width: 63.75rem;
+    max-width: 40rem;
     margin: 2rem auto;
   }
   &__title {

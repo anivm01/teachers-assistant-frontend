@@ -14,8 +14,9 @@ function TemplateSelectionPage() {
 
   return (
     <div className="select">
-      {templateContents.length > 0 && <UploadsSoFar templateContents={templateContents} setTemplateContents={setTemplateContents}/>}
+      {templateContents.length > 0 && <div className="select__animated"> <UploadsSoFar  templateContents={templateContents} setTemplateContents={setTemplateContents}/></div>}
       <div className="select__upload">
+        <h2 className="select__title">Upload words and pictures</h2>
         <Upload
           uploadFields={uploadFields}
           setUploadFields={setUploadFields}
@@ -23,7 +24,9 @@ function TemplateSelectionPage() {
           setTemplateContents={setTemplateContents}
         />
       </div>
-      {templateContents.length > 0 && <TemplatesDisplay templateContents={templateContents} />}
+      {templateContents.length > 0 && <div className="select__animated">
+      <h2 className="select__title">Choose your template</h2>
+        <TemplatesDisplay className={`${templateContents.length > 0 && "select__animated"}`} templateContents={templateContents} /></div>}
     </div>
   );
 }
