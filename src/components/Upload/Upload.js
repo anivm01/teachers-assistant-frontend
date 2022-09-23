@@ -71,15 +71,17 @@ function Upload({
             value={textInput || ""}
             onChange={onVocabularyChange}
           />
-        </label>  
+        </label>
+        <h2 className="upload__title">Click the plus button to make your template</h2>  
           <input className="upload__submit" type="submit" />
-        </div>
-    </form>
-    {uploadError && (
+          {uploadError && (
             <p className="upload__error">
               "You must input both an image and text for these templates"
             </p>
     )}
+        </div>
+    </form>
+    
     </>
   );
 }

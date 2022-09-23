@@ -13,11 +13,11 @@
   box-shadow: inset 0 0 2rem -0.5rem #e6f6fc;
   @include tablet {
     padding: 2rem;
-    margin: 2rem;
+    margin: 1rem;
 }
   @include desktop {
     max-width: 40rem;
-    margin: 2rem auto;
+    margin: 1rem auto;
   }
   &__title {
     margin: 1rem 0;

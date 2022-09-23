@@ -1,0 +1,13 @@
+@use "../../partials/breakpoints" as*;
+.header {
+    padding: .5rem 1rem;
+    &__logo {
+    height: 3rem;
+    width: 3rem;
+    @include tablet {
+      height: 4rem;
+      width: 4rem;
+    }
+  }
+    
+}

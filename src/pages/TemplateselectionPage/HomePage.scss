@@ -20,7 +20,7 @@
     }
   }
   &__cta {
-    padding: .5rem 1rem;
+    padding: .8rem 1rem .5rem 1rem;
     margin: 1rem 0;
     text-decoration: none;
     text-align: center;
@@ -29,6 +29,9 @@
     background-color: #F5D84D;
     color: #29369D;
     border-radius: 2.1875rem;
+    &:hover {
+      background-color: #e6f6fc;
+    }
     @include tablet {
         max-width: 12.5rem;
     }
