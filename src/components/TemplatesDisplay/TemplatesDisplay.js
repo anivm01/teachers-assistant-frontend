@@ -123,10 +123,11 @@ function TemplatesDisplay({ templateContents, isLoggedIn }) {
     console.log(file)
       const formData = new FormData();      
       formData.append("file", file)
+      const token = sessionStorage.getItem("authToken")
       axios.post("http://localhost:5000/pdf", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
-        "Authorization": `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE2NjQzMjg4ODd9.uniE3DpM8Jb_pbIXHwPBiCJKdrMcj_SF6nQjynRGePk`
+        "Authorization": `Bearer ${token}`
       }
     }).then(response=>{
       console.log(response)
