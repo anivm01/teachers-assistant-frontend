@@ -10,6 +10,7 @@ import Template4 from "../../components/Template4/Template4";
 import Template5 from "../../components/Template5/Template5";
 import Template6 from "../../components/Template6/Template6";
 import printIcon from "../../assets/svg/printer-icon.svg";
+import axios from "axios";
 
 function TemplatesDisplay({ templateContents }) {
   const docToPrint = useRef(null);
@@ -70,7 +71,8 @@ function TemplatesDisplay({ templateContents }) {
   const [displayTemplate5, setDisplayTemplate5] = useState(false);
   const [displayTemplate6, setDisplayTemplate6] = useState(false);
   const [smallSizePreview, setSmallSizePreview] = useState(true);
-  const [pdfName, setPdfName] = useState("");
+  const [pdfName, setPdfName] = useState("yourPDF");
+  const [pdfFile, setPdfFile] = useState(null)
   const [twoLines, setTwoLines] = useState(false);
 
   function handleGetPDF(pdfName) {
@@ -83,6 +85,30 @@ function TemplatesDisplay({ templateContents }) {
     };
     worker.from(pdf).set(opt).save();
     setPdfName("");
+  }
+  function handleSetFileState(){
+    let pdf = docToPrint.current
+    worker.from(pdf).outputPdf("blob").then(result =>{
+      setPdfFile(result)
+    })
+  }
+
+  function handleUploadPDF(){
+    const file = new File([pdfFile], pdfName)
+    console.log(file)
+      const formData = new FormData();      
+      formData.append( "file", file)
+      axios.post("http://localhost:5000/pdf", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        "Authorization": `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE2NjQyOTI0MzV9.SkkTPzAUMR8OnkNOa5okasUapr-a6LVXbkFP6Acht88`
+      }
+    }).then(response=>{
+      console.log(response)
+    }).catch(error=>{
+      console.log(error)
+    })
+       
   }
 
   return (
@@ -98,6 +124,7 @@ function TemplatesDisplay({ templateContents }) {
                 alt="view more"
               />
             </button>
+            <button className="select__button" type="submit">Upload</button>
             <div className="select__blur select__blur--top"></div>
             <div className="select__option">
               <div className="select__container1">
@@ -250,6 +277,8 @@ function TemplatesDisplay({ templateContents }) {
       {displayTemplate1 && (
         <>
           <div className="select__print-nav">
+          <button className="select__print" onClick={handleSetFileState}>Upload Step 1</button>
+            <button className="select__print" onClick={handleUploadPDF}>Upload Step 2</button>
             <button
               className="select__print"
               onClick={() => {
