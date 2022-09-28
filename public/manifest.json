@@ -5,16 +5,6 @@
     {
       "src": "teachers-assistant-logo.svg",
       "type": "image/svg"
-    },
-    {
-      "src": "teachers-assistant-logo.svg",
-      "type": "image/svg",
-      "sizes": "192x192"
-    },
-    {
-      "src": "teachers-assistant-logo.svg",
-      "type": "image/svg",
-      "sizes": "512x512"
     }
   ],
   "start_url": ".",

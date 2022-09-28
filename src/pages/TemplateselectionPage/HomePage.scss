@@ -21,20 +21,29 @@
   }
   &__cta {
     padding: .8rem 1rem .5rem 1rem;
-    margin: 1rem 0;
+    margin: 1rem;
     text-decoration: none;
     text-align: center;
     font-size: 1.5rem;
+    font-family: filmotype-austin,sans-serif;
     width: 100%;
     background-color: #F5D84D;
     color: #29369D;
     border-radius: 2.1875rem;
+    border: none;
     &:hover {
       background-color: #e6f6fc;
     }
     @include tablet {
         max-width: 12.5rem;
+        min-width: 9rem;
     }
+  }
+  &__auth{
+    font-family: filmotype-austin,sans-serif;
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
   &__hero {
     display: flex;

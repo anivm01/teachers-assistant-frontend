@@ -2,15 +2,16 @@
     background-color: white;
     height: 74.25px;
     width: 70px;
-    font-size: .25rem;
+    font-size: .75rem;
     border: 1px solid black;
     margin: 0;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
+    padding: .5rem;
     &__image {
-        max-height: 50px;
+        max-height: 40px;
         max-width: 50px;
     }
     &__vocabulary {

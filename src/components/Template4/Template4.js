@@ -12,12 +12,12 @@ function Template4( {word, image, templateClass} ) {
               />
             </div>
             <div className={`${templateClass}__right`}>
-              <h2 className={`${templateClass}__vocabulary`}>
+              <p className={`${templateClass}__vocabulary`}>
                 {word}
-              </h2>
-              <h2 className={`${templateClass}__vocabulary`}>
+              </p>
+              <p className={`${templateClass}__vocabulary`}>
                 ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
-              </h2>
+              </p>
             </div>
           </div>
   )

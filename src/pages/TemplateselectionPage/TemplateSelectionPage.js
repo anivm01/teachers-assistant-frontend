@@ -5,7 +5,7 @@ import TemplatesDisplay from "../../components/TemplatesDisplay/TemplatesDisplay
 import UploadsSoFar from "../../components/UploadsSoFar/UploadsSoFar";
 import Header from "../../components/Header/Header";
 
-function TemplateSelectionPage() {
+function TemplateSelectionPage({isLoggedIn}) {
   const [templateContents, setTemplateContents] = useState([]);
   const [uploadFields, setUploadFields] = useState([0]);
 
@@ -41,6 +41,7 @@ function TemplateSelectionPage() {
             <TemplatesDisplay
               className={`${templateContents.length > 0 && "select__animated"}`}
               templateContents={templateContents}
+              isLoggedIn={isLoggedIn}
             />
           </div>
         )}

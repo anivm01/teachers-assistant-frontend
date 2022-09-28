@@ -5,13 +5,23 @@ import step1 from "../../assets/svg/step1.svg";
 import step2 from "../../assets/svg/step2.svg";
 import step3 from "../../assets/svg/step3.svg";
 import { Link } from "react-router-dom";
+import Signup from "../../components/Signup-Login/Signup";
+import { useState } from "react";
+import Login from "../../components/Signup-Login/Login";
 
-function HomePage() {
+function HomePage( {isLoggedIn, setIsLoggedIn} ) {
+  const [loginVisible, setLoginVisible] = useState(false)
+  const [signupVisible, setSignupVisible] = useState(false)
   return (
+    <>
     <main className="home">
       <img className="home__logo" src={taLogo} alt="teachers assistant logo" />
       <h1>Teacher's Assistant</h1>
       <Link className="home__cta" to="/templates">Get Started</Link>
+      <div className="home__auth">
+      <button className="home__cta" onClick={()=>setLoginVisible(true)}>Login</button>
+      <button className="home__cta" onClick={()=>setSignupVisible(true)}>Sign Up</button>
+      </div>
       <section className="home__hero">
         <img
           className="home__img"
@@ -46,6 +56,9 @@ function HomePage() {
         </div>
       </section>
     </main>
+    {signupVisible && <Signup setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} setSignupVisible={setSignupVisible}/>}
+    {loginVisible && <Login setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} setLoginVisible={setLoginVisible}/>}    
+    </>
   );
 }
 
