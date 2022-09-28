@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Header from "../../components/Header/Header";
 import "./AccountPage.scss"
 
 function AccountPage( isLoggedIn) {
@@ -23,6 +24,8 @@ function AccountPage( isLoggedIn) {
     }
   
     return (
+        <>
+        <Header />
         <div className="account">
         <h1 className="account__title">Your Saved PDFs</h1>
         {pdfs.map((pdf, index) => {
@@ -36,6 +39,7 @@ function AccountPage( isLoggedIn) {
             )
         })}
          </div>
+         </>
     )
 }
 
