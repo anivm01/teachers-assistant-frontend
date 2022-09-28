@@ -53,16 +53,32 @@
         margin: 0;
       }
       &__button {
-        background-color: transparent;
+        margin-top: .75rem;
+        font-family: filmotype-austin,sans-serif;
+        font-size: 1rem;
         border: none;
-      }
-      &__view-more {
-        height: 2rem;
-        width: 2rem;
+        padding: .5rem .75rem;
+        border-radius: 35px;
+        color: #E6F6FC;
+        background-color: #2fa7e0;
+        box-shadow: inset 0 0 10px #E6F6FC;
         cursor: pointer;
+        @include tablet {
+          font-size: 1.5rem;
+        }
+        &:hover {
+          color:#2fa7e0;
+          background-color: #E6F6FC;
+          box-shadow: inset 0 0 10px #2fa7e0;
+        }
       }
+      &__description {
+        color: #29369D;
+        text-align: center;
+      }
+
       &__blur {
-        height: 1rem;
+        height: 1.2rem;
         width: 210px;
         position: sticky;
         z-index: 1;
@@ -99,10 +115,13 @@
         background-color: transparent;
         border: none;
       }
-      &__print-icon {
+      &__download-icon {
         margin: 1rem;
-        height: 3rem;
-        width: 3.5rem;
+        padding: .5rem;
+        height: 4.5rem;
+        width: 4.5rem;
+        border-radius: 50%;
+        box-shadow: inset 0 0 10px #E6F6FC;
         cursor: pointer;
       }
       &__pdf-name {

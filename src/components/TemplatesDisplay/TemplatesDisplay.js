@@ -1,7 +1,6 @@
 import "./TemplatesDisplay.scss";
 import html2pdf from "html2pdf.js/dist/html2pdf.min";
 import { useRef, useState } from "react";
-import plusIcon from "../../assets/svg/preview-icon.svg";
 import closeIcon from "../../assets/svg/close-icon.svg";
 import Template1 from "../../components/Template1/Template1";
 import Template2 from "../../components/Template2/Template2";
@@ -10,11 +9,25 @@ import Template4 from "../../components/Template4/Template4";
 import Template5 from "../../components/Template5/Template5";
 import Template6 from "../../components/Template6/Template6";
 import printIcon from "../../assets/svg/printer-icon.svg";
+import downloadIcon from "../../assets/svg/download.svg";
+import uploadIcon from "../../assets/svg/upload.svg";
 import axios from "axios";
 
 function TemplatesDisplay({ templateContents }) {
   const docToPrint = useRef(null);
   const worker = html2pdf();
+
+  const [displayTemplate1, setDisplayTemplate1] = useState(false);
+  const [displayTemplate2, setDisplayTemplate2] = useState(false);
+  const [displayTemplate3, setDisplayTemplate3] = useState(false);
+  const [displayTemplate4, setDisplayTemplate4] = useState(false);
+  const [displayTemplate5, setDisplayTemplate5] = useState(false);
+  const [displayTemplate6, setDisplayTemplate6] = useState(false);
+  const [smallSizePreview, setSmallSizePreview] = useState(true);
+  const [pdfName, setPdfName] = useState("yourPDF");
+  const [pdfNameError, setPdfNameError] = useState(false)
+  const [pdfFile, setPdfFile] = useState(null)
+  const [twoLines, setTwoLines] = useState(false);
 
   const closePrintPreview = () => {
     setSmallSizePreview(true);
@@ -34,48 +47,64 @@ function TemplatesDisplay({ templateContents }) {
   const previewFullSizeOption1 = () => {
     setSmallSizePreview(false);
     setDisplayTemplate1(true);
+    let pdf = docToPrint.current
+    worker.from(pdf).outputPdf("blob").then(result =>{
+      setPdfFile(result)
+    })
   };
 
   const previewFullSizeOption2 = () => {
     setSmallSizePreview(false);
     setDisplayTemplate2(true);
+    let pdf = docToPrint.current
+    worker.from(pdf).outputPdf("blob").then(result =>{
+      setPdfFile(result)
+    })
   };
 
   const previewFullSizeOption3 = () => {
     setSmallSizePreview(false);
     setDisplayTemplate3(true);
+    let pdf = docToPrint.current
+    worker.from(pdf).outputPdf("blob").then(result =>{
+      setPdfFile(result)
+    })
   };
 
   const previewFullSizeOption4 = () => {
     setSmallSizePreview(false);
     setDisplayTemplate4(true);
+    let pdf = docToPrint.current
+    worker.from(pdf).outputPdf("blob").then(result =>{
+      setPdfFile(result)
+    })
   };
 
   const previewFullSizeOption5 = () => {
     setSmallSizePreview(false);
     setDisplayTemplate5(true);
+    let pdf = docToPrint.current
+    worker.from(pdf).outputPdf("blob").then(result =>{
+      setPdfFile(result)
+    })
   };
 
   const previewFullSizeOption6 = () => {
     setSmallSizePreview(false);
     setDisplayTemplate6(true);
+    let pdf = docToPrint.current
+    worker.from(pdf).outputPdf("blob").then(result =>{
+      setPdfFile(result)
+    })
   };
 
   const changePdfName = (event) => {
+    setPdfNameError(false)
     setPdfName(event.target.value);
   };
-  const [displayTemplate1, setDisplayTemplate1] = useState(false);
-  const [displayTemplate2, setDisplayTemplate2] = useState(false);
-  const [displayTemplate3, setDisplayTemplate3] = useState(false);
-  const [displayTemplate4, setDisplayTemplate4] = useState(false);
-  const [displayTemplate5, setDisplayTemplate5] = useState(false);
-  const [displayTemplate6, setDisplayTemplate6] = useState(false);
-  const [smallSizePreview, setSmallSizePreview] = useState(true);
-  const [pdfName, setPdfName] = useState("yourPDF");
-  const [pdfFile, setPdfFile] = useState(null)
-  const [twoLines, setTwoLines] = useState(false);
+  
 
-  function handleGetPDF(pdfName) {
+  function handleGetPDF() {
     let pdf = docToPrint.current;
     const opt = {
       margin: 0,
@@ -86,22 +115,20 @@ function TemplatesDisplay({ templateContents }) {
     worker.from(pdf).set(opt).save();
     setPdfName("");
   }
-  function handleSetFileState(){
-    let pdf = docToPrint.current
-    worker.from(pdf).outputPdf("blob").then(result =>{
-      setPdfFile(result)
-    })
-  }
 
   function handleUploadPDF(){
+    if (!pdfName){
+      setPdfNameError(true)
+      return
+    }
     const file = new File([pdfFile], pdfName)
     console.log(file)
       const formData = new FormData();      
-      formData.append( "file", file)
+      formData.append("file", file)
       axios.post("http://localhost:5000/pdf", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
-        "Authorization": `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE2NjQyOTI0MzV9.SkkTPzAUMR8OnkNOa5okasUapr-a6LVXbkFP6Acht88`
+        "Authorization": `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE2NjQzMjg4ODd9.uniE3DpM8Jb_pbIXHwPBiCJKdrMcj_SF6nQjynRGePk`
       }
     }).then(response=>{
       console.log(response)
@@ -116,15 +143,7 @@ function TemplatesDisplay({ templateContents }) {
       {smallSizePreview && (
         <div className="select__display">
           <div className="select__wrapper">
-            <button className="select__button">
-              <img
-                onClick={previewFullSizeOption1}
-                className="select__view-more"
-                src={plusIcon}
-                alt="view more"
-              />
-            </button>
-            <button className="select__button" type="submit">Upload</button>
+          <h3 className="select__description">Large Flashcards</h3>
             <div className="select__blur select__blur--top"></div>
             <div className="select__option">
               <div className="select__container1">
@@ -141,16 +160,12 @@ function TemplatesDisplay({ templateContents }) {
               </div>
             </div>
             <div className="select__blur select__blur--bottom"></div>
+            <button className="select__button" onClick={previewFullSizeOption1}>
+              Preview Template
+            </button>
           </div>
           <div className="select__wrapper">
-            <button className="select__button">
-              <img
-                onClick={previewFullSizeOption2}
-                className="select__view-more"
-                src={plusIcon}
-                alt="view more"
-              />
-            </button>
+          <h3 className="select__description">Medium Flashcards</h3>
             <div className="select__blur select__blur--top"></div>
             <div className="select__option">
               <div className="select__container2">
@@ -167,16 +182,12 @@ function TemplatesDisplay({ templateContents }) {
               </div>
             </div>
             <div className="select__blur select__blur--bottom"></div>
-          </div>
+            <button className="select__button" onClick={previewFullSizeOption2}>
+              Preview Template
+            </button>          
+            </div>
           <div className="select__wrapper">
-            <button className="select__button">
-              <img
-                onClick={previewFullSizeOption3}
-                className="select__view-more"
-                src={plusIcon}
-                alt="view more"
-              />
-            </button>
+          <h3 className="select__description">Small Flashcards</h3>
             <div className="select__blur select__blur--top"></div>
             <div className="select__option">
               <div className="select__container3">
@@ -193,16 +204,11 @@ function TemplatesDisplay({ templateContents }) {
               </div>
             </div>
             <div className="select__blur select__blur--bottom"></div>
-          </div>
+            <button className="select__button" onClick={previewFullSizeOption3}>
+              Preview Template
+            </button>          </div>
           <div className="select__wrapper">
-            <button className="select__button">
-              <img
-                onClick={previewFullSizeOption4}
-                className="select__view-more"
-                src={plusIcon}
-                alt="view more"
-              />
-            </button>
+          <h3 className="select__description">Writing Large</h3>
             <div className="select__blur select__blur--top"></div>
             <div className="select__option">
               <div className="select__container4">
@@ -219,16 +225,12 @@ function TemplatesDisplay({ templateContents }) {
               </div>
             </div>
             <div className="select__blur select__blur--bottom"></div>
+            <button className="select__button" onClick={previewFullSizeOption4}>
+              Preview Template
+            </button>
           </div>
           <div className="select__wrapper">
-            <button className="select__button">
-              <img
-                onClick={previewFullSizeOption5}
-                className="select__view-more"
-                src={plusIcon}
-                alt="view more"
-              />
-            </button>
+          <h3 className="select__description">Writing Small</h3>
             <div className="select__blur select__blur--top"></div>
             <div className="select__option">
               <div className="select__container5">
@@ -245,16 +247,12 @@ function TemplatesDisplay({ templateContents }) {
               </div>
             </div>
             <div className="select__blur select__blur--bottom"></div>
+            <button className="select__button" onClick={previewFullSizeOption5}>
+              Preview Template
+            </button>
           </div>
           <div className="select__wrapper">
-            <button className="select__button">
-              <img
-                onClick={previewFullSizeOption6}
-                className="select__view-more"
-                src={plusIcon}
-                alt="view more"
-              />
-            </button>
+          <h3 className="select__description">Game Cards</h3>
             <div className="select__blur select__blur--top"></div>
             <div className="select__option">
               <div className="select__container6">
@@ -271,13 +269,15 @@ function TemplatesDisplay({ templateContents }) {
               </div>
             </div>
             <div className="select__blur select__blur--bottom"></div>
+            <button className="select__button" onClick={previewFullSizeOption6}>
+              Preview Template
+            </button>
           </div>
         </div>
       )}
       {displayTemplate1 && (
         <>
           <div className="select__print-nav">
-          <button className="select__print" onClick={handleSetFileState}>Upload Step 1</button>
             <button className="select__print" onClick={handleUploadPDF}>Upload Step 2</button>
             <button
               className="select__print"
@@ -285,7 +285,7 @@ function TemplatesDisplay({ templateContents }) {
                 handleGetPDF(pdfName);
               }}
             >
-              <img className="select__print-icon" src={printIcon} alt="print" />
+              <img className="select__download-icon" src={downloadIcon} alt="print" />
             </button>
             <input
               className="select__pdf-name"
@@ -295,8 +295,8 @@ function TemplatesDisplay({ templateContents }) {
               onChange={changePdfName}
               placeholder="Name your pdf"
             />
-            <button className="select__print" onClick={closePrintPreview}>
-              <img className="select__print-icon" src={closeIcon} alt="print" />
+            <button className="select__close" onClick={closePrintPreview}>
+              <img className="select__close-icon" src={closeIcon} alt="print" />
             </button>
           </div>
           <div className="select__preview">
