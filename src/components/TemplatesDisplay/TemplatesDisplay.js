@@ -12,8 +12,9 @@ import printIcon from "../../assets/svg/printer-icon.svg";
 import downloadIcon from "../../assets/svg/download.svg";
 import uploadIcon from "../../assets/svg/upload.svg";
 import axios from "axios";
+import PdfControls from "../PdfControls/PdfControls";
 
-function TemplatesDisplay({ templateContents }) {
+function TemplatesDisplay({ templateContents, isLoggedIn }) {
   const docToPrint = useRef(null);
   const worker = html2pdf();
 
@@ -98,10 +99,7 @@ function TemplatesDisplay({ templateContents }) {
     })
   };
 
-  const changePdfName = (event) => {
-    setPdfNameError(false)
-    setPdfName(event.target.value);
-  };
+
   
 
   function handleGetPDF() {
@@ -116,7 +114,7 @@ function TemplatesDisplay({ templateContents }) {
     setPdfName("");
   }
 
-  function handleUploadPDF(){
+  function handleUploadPDF({isLoggedIn}){
     if (!pdfName){
       setPdfNameError(true)
       return
@@ -277,28 +275,16 @@ function TemplatesDisplay({ templateContents }) {
       )}
       {displayTemplate1 && (
         <>
-          <div className="select__print-nav">
-            <button className="select__print" onClick={handleUploadPDF}>Upload Step 2</button>
-            <button
-              className="select__print"
-              onClick={() => {
-                handleGetPDF(pdfName);
-              }}
-            >
-              <img className="select__download-icon" src={downloadIcon} alt="print" />
-            </button>
-            <input
-              className="select__pdf-name"
-              type="text"
-              name="pdf-name"
-              value={pdfName}
-              onChange={changePdfName}
-              placeholder="Name your pdf"
-            />
-            <button className="select__close" onClick={closePrintPreview}>
-              <img className="select__close-icon" src={closeIcon} alt="print" />
-            </button>
-          </div>
+        <PdfControls 
+        handleGetPDF={handleGetPDF}
+        handleUploadPDF={handleUploadPDF}
+        pdfName={pdfName}
+        setPdfName={setPdfName}
+        setPdfNameError={setPdfNameError}
+        pdfNameError={pdfNameError}
+        closePrintPreview={closePrintPreview}
+        isLoggedIn={isLoggedIn}
+        />
           <div className="select__preview">
             <div ref={docToPrint} className="select__full-view">
               {templateContents.map((single, index) => {
@@ -317,27 +303,15 @@ function TemplatesDisplay({ templateContents }) {
       )}
       {displayTemplate2 && (
         <>
-          <div className="select__print-nav">
-            <button
-              className="select__print"
-              onClick={() => {
-                handleGetPDF(pdfName);
-              }}
-            >
-              <img className="select__print-icon" src={printIcon} alt="print" />
-            </button>
-            <input
-              className="select__pdf-name"
-              type="text"
-              name="pdf-name"
-              value={pdfName}
-              onChange={changePdfName}
-              placeholder="Name your pdf"
-            />
-            <button className="select__print" onClick={closePrintPreview}>
-              <img className="select__print-icon" src={closeIcon} alt="print" />
-            </button>
-          </div>
+        <PdfControls 
+        handleGetPDF={handleGetPDF}
+        handleUploadPDF={handleUploadPDF}
+        pdfName={pdfName}
+        setPdfName={setPdfName}
+        setPdfNameError={setPdfNameError}
+        pdfNameError={pdfNameError}
+        closePrintPreview={closePrintPreview}
+        />
           <div className="select__preview">
             <div ref={docToPrint} className="select__full-view">
               {templateContents.map((single, index) => {
@@ -356,27 +330,15 @@ function TemplatesDisplay({ templateContents }) {
       )}
       {displayTemplate3 && (
         <>
-          <div className="select__print-nav">
-            <button
-              className="select__print"
-              onClick={() => {
-                handleGetPDF(pdfName);
-              }}
-            >
-              <img className="select__print-icon" src={printIcon} alt="print" />
-            </button>
-            <input
-              className="select__pdf-name"
-              type="text"
-              name="pdf-name"
-              value={pdfName}
-              onChange={changePdfName}
-              placeholder="Name your pdf"
-            />
-            <button className="select__print" onClick={closePrintPreview}>
-              <img className="select__print-icon" src={closeIcon} alt="print" />
-            </button>
-          </div>
+        <PdfControls 
+        handleGetPDF={handleGetPDF}
+        handleUploadPDF={handleUploadPDF}
+        pdfName={pdfName}
+        setPdfName={setPdfName}
+        setPdfNameError={setPdfNameError}
+        pdfNameError={pdfNameError}
+        closePrintPreview={closePrintPreview}
+        />
           <div className="select__preview">
             <div
               ref={docToPrint}
@@ -398,27 +360,15 @@ function TemplatesDisplay({ templateContents }) {
       )}
       {displayTemplate4 && (
         <>
-          <div className="select__print-nav">
-            <button
-              className="select__print"
-              onClick={() => {
-                handleGetPDF(pdfName);
-              }}
-            >
-              <img className="select__print-icon" src={printIcon} alt="print" />
-            </button>
-            <input
-              className="select__pdf-name"
-              type="text"
-              name="pdf-name"
-              value={pdfName}
-              onChange={changePdfName}
-              placeholder="Name your pdf"
-            />
-            <button className="select__print" onClick={closePrintPreview}>
-              <img className="select__print-icon" src={closeIcon} alt="print" />
-            </button>
-          </div>
+        <PdfControls 
+        handleGetPDF={handleGetPDF}
+        handleUploadPDF={handleUploadPDF}
+        pdfName={pdfName}
+        setPdfName={setPdfName}
+        setPdfNameError={setPdfNameError}
+        pdfNameError={pdfNameError}
+        closePrintPreview={closePrintPreview}
+        />
           <div className="select__preview">
             <div ref={docToPrint} className="select__full-view">
               {templateContents.map((single, index) => {
@@ -437,27 +387,15 @@ function TemplatesDisplay({ templateContents }) {
       )}
       {displayTemplate5 && (
         <>
-          <div className="select__print-nav">
-            <button
-              className="select__print"
-              onClick={() => {
-                handleGetPDF(pdfName);
-              }}
-            >
-              <img className="select__print-icon" src={printIcon} alt="print" />
-            </button>
-            <input
-              className="select__pdf-name"
-              type="text"
-              name="pdf-name"
-              value={pdfName}
-              onChange={changePdfName}
-              placeholder="Name your pdf"
-            />
-            <button className="select__print" onClick={closePrintPreview}>
-              <img className="select__print-icon" src={closeIcon} alt="print" />
-            </button>
-          </div>
+        <PdfControls 
+        handleGetPDF={handleGetPDF}
+        handleUploadPDF={handleUploadPDF}
+        pdfName={pdfName}
+        setPdfName={setPdfName}
+        setPdfNameError={setPdfNameError}
+        pdfNameError={pdfNameError}
+        closePrintPreview={closePrintPreview}
+        />
           <div className="select__preview">
             <div ref={docToPrint} className="select__full-view">
               {templateContents.map((single, index) => {
@@ -476,27 +414,15 @@ function TemplatesDisplay({ templateContents }) {
       )}
       {displayTemplate6 && (
         <>
-          <div className="select__print-nav">
-            <button
-              className="select__print"
-              onClick={() => {
-                handleGetPDF(pdfName);
-              }}
-            >
-              <img className="select__print-icon" src={printIcon} alt="print" />
-            </button>
-            <input
-              className="select__pdf-name"
-              type="text"
-              name="pdf-name"
-              value={pdfName}
-              onChange={changePdfName}
-              placeholder="Name your pdf"
-            />
-            <button className="select__print" onClick={closePrintPreview}>
-              <img className="select__print-icon" src={closeIcon} alt="print" />
-            </button>
-          </div>
+        <PdfControls 
+        handleGetPDF={handleGetPDF}
+        handleUploadPDF={handleUploadPDF}
+        pdfName={pdfName}
+        setPdfName={setPdfName}
+        setPdfNameError={setPdfNameError}
+        pdfNameError={pdfNameError}
+        closePrintPreview={closePrintPreview}
+        />
           <div className="select__preview">
             <div ref={docToPrint} className="select__full-view select__full-view--6">
               {templateContents.map((single, index) => {
