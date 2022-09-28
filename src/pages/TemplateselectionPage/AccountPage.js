@@ -28,14 +28,14 @@ function AccountPage( isLoggedIn) {
         <Header />
         <div className="account">
         <h1 className="account__title">Your Saved PDFs</h1>
-        {pdfs.map((pdf, index) => {
-            const newFileName = pdf.file_name;
-            const splitFileName = newFileName.split("-")
-            console.log(splitFileName)
+        {pdfs.length === 0 ? <h2 className="account__error">You have no saved pdfs yet</h2> : pdfs.map((pdf, index) => {
             return (
-                <a className="account__pdfs" href={pdf.file_link} key={index} >
-                    {splitFileName[0]}
+              <div className="account__pdf" key={index}>
+                <a className="account__link" href={pdf.file_link}  target="_blank" >
+                    {pdf.file_name}
                 </a>
+                <iframe src={pdf.file_link}></iframe>
+                </div>
             )
         })}
          </div>

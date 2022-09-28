@@ -39,6 +39,7 @@ function TemplatesDisplay({ templateContents, isLoggedIn }) {
     setDisplayTemplate5(false);
     setDisplayTemplate6(false);
     setPdfName("");
+    setPdfFile(null);
   };
 
   const changeNumberOfLines = () => {
@@ -48,10 +49,7 @@ function TemplatesDisplay({ templateContents, isLoggedIn }) {
   const previewFullSizeOption1 = () => {
     setSmallSizePreview(false);
     setDisplayTemplate1(true);
-    let pdf = docToPrint.current
-    worker.from(pdf).outputPdf("blob").then(result =>{
-      setPdfFile(result)
-    })
+    
   };
 
   const previewFullSizeOption2 = () => {
@@ -114,26 +112,42 @@ function TemplatesDisplay({ templateContents, isLoggedIn }) {
     setPdfName("");
   }
 
-  function handleUploadPDF({isLoggedIn}){
+  function handleUploadPDF(){
     if (!pdfName){
       setPdfNameError(true)
       return
     }
-    const file = new File([pdfFile], pdfName)
-    console.log(file)
-      const formData = new FormData();      
-      formData.append("file", file)
+    const pdfToUpload = docToPrint.current
+     worker.from(pdfToUpload).outputPdf("blob").then(result =>{
+      const file = new File([result], pdfName, {type:"application/pdf"})
+      // setPdfFile(file)
+      const formData = new FormData(); 
+      console.log(file)     
+      formData.append("file", file, `${pdfName}.pdf`)
       const token = sessionStorage.getItem("authToken")
-      axios.post("http://localhost:5000/pdf", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-        "Authorization": `Bearer ${token}`
-      }
+      return axios.post("http://localhost:5000/pdf", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          "Authorization": `Bearer ${token}`
+        }
+      })
     }).then(response=>{
       console.log(response)
     }).catch(error=>{
       console.log(error)
     })
+    // const file = new File([pdfFile], pdfName)
+      
+    //   axios.post("http://localhost:5000/pdf", formData, {
+    //   headers: {
+    //     "Content-Type": "multipart/form-data",
+    //     "Authorization": `Bearer ${token}`
+    //   }
+    // }).then(response=>{
+    //   console.log(response)
+    // }).catch(error=>{
+    //   console.log(error)
+    // })
        
   }
 
