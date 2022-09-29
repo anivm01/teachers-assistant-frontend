@@ -39,6 +39,7 @@ function TemplatesDisplay({ templateContents, isLoggedIn }) {
     setDisplayTemplate5(false);
     setDisplayTemplate6(false);
     setPdfName("");
+    setPdfFile(null);
   };
 
   const changeNumberOfLines = () => {
@@ -48,59 +49,34 @@ function TemplatesDisplay({ templateContents, isLoggedIn }) {
   const previewFullSizeOption1 = () => {
     setSmallSizePreview(false);
     setDisplayTemplate1(true);
-    let pdf = docToPrint.current
-    worker.from(pdf).outputPdf("blob").then(result =>{
-      setPdfFile(result)
-    })
+    
   };
 
   const previewFullSizeOption2 = () => {
     setSmallSizePreview(false);
     setDisplayTemplate2(true);
-    let pdf = docToPrint.current
-    worker.from(pdf).outputPdf("blob").then(result =>{
-      setPdfFile(result)
-    })
   };
 
   const previewFullSizeOption3 = () => {
     setSmallSizePreview(false);
     setDisplayTemplate3(true);
-    let pdf = docToPrint.current
-    worker.from(pdf).outputPdf("blob").then(result =>{
-      setPdfFile(result)
-    })
   };
 
   const previewFullSizeOption4 = () => {
     setSmallSizePreview(false);
     setDisplayTemplate4(true);
-    let pdf = docToPrint.current
-    worker.from(pdf).outputPdf("blob").then(result =>{
-      setPdfFile(result)
-    })
   };
 
   const previewFullSizeOption5 = () => {
     setSmallSizePreview(false);
     setDisplayTemplate5(true);
-    let pdf = docToPrint.current
-    worker.from(pdf).outputPdf("blob").then(result =>{
-      setPdfFile(result)
-    })
   };
 
   const previewFullSizeOption6 = () => {
     setSmallSizePreview(false);
     setDisplayTemplate6(true);
-    let pdf = docToPrint.current
-    worker.from(pdf).outputPdf("blob").then(result =>{
-      setPdfFile(result)
-    })
   };
 
-
-  
 
   function handleGetPDF() {
     let pdf = docToPrint.current;
@@ -114,27 +90,28 @@ function TemplatesDisplay({ templateContents, isLoggedIn }) {
     setPdfName("");
   }
 
-  function handleUploadPDF({isLoggedIn}){
+  function handleUploadPDF(){
     if (!pdfName){
       setPdfNameError(true)
       return
     }
-    const file = new File([pdfFile], pdfName)
-    console.log(file)
+    const pdfToUpload = docToPrint.current
+     worker.from(pdfToUpload).outputPdf("blob").then(result =>{
+      const file = new File([result], pdfName, {type:"application/pdf"})
       const formData = new FormData();      
-      formData.append("file", file)
+      formData.append("file", file, `${pdfName}.pdf`)
       const token = sessionStorage.getItem("authToken")
-      axios.post("http://localhost:5000/pdf", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-        "Authorization": `Bearer ${token}`
-      }
+      return axios.post("http://localhost:5000/pdf", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          "Authorization": `Bearer ${token}`
+        }
+      })
     }).then(response=>{
       console.log(response)
     }).catch(error=>{
       console.log(error)
     })
-       
   }
 
   return (
@@ -312,6 +289,7 @@ function TemplatesDisplay({ templateContents, isLoggedIn }) {
         setPdfNameError={setPdfNameError}
         pdfNameError={pdfNameError}
         closePrintPreview={closePrintPreview}
+        isLoggedIn={isLoggedIn}
         />
           <div className="select__preview">
             <div ref={docToPrint} className="select__full-view">
@@ -339,6 +317,7 @@ function TemplatesDisplay({ templateContents, isLoggedIn }) {
         setPdfNameError={setPdfNameError}
         pdfNameError={pdfNameError}
         closePrintPreview={closePrintPreview}
+        isLoggedIn={isLoggedIn}
         />
           <div className="select__preview">
             <div
@@ -369,6 +348,7 @@ function TemplatesDisplay({ templateContents, isLoggedIn }) {
         setPdfNameError={setPdfNameError}
         pdfNameError={pdfNameError}
         closePrintPreview={closePrintPreview}
+        isLoggedIn={isLoggedIn}
         />
           <div className="select__preview">
             <div ref={docToPrint} className="select__full-view">
@@ -396,6 +376,7 @@ function TemplatesDisplay({ templateContents, isLoggedIn }) {
         setPdfNameError={setPdfNameError}
         pdfNameError={pdfNameError}
         closePrintPreview={closePrintPreview}
+        isLoggedIn={isLoggedIn}
         />
           <div className="select__preview">
             <div ref={docToPrint} className="select__full-view">
@@ -423,6 +404,7 @@ function TemplatesDisplay({ templateContents, isLoggedIn }) {
         setPdfNameError={setPdfNameError}
         pdfNameError={pdfNameError}
         closePrintPreview={closePrintPreview}
+        isLoggedIn={isLoggedIn}
         />
           <div className="select__preview">
             <div ref={docToPrint} className="select__full-view select__full-view--6">

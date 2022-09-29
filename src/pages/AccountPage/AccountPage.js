@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Header from "../../components/Header/Header";
+import { Navigate } from "react-router-dom";
 import "./AccountPage.scss"
 
 function AccountPage( isLoggedIn) {
@@ -19,25 +19,29 @@ function AccountPage( isLoggedIn) {
         })
     }, [isLoggedIn]);
 
+    if (!isLoggedIn){
+      return <Navigate to="/"/>
+    }
     if (isLoading) {
         return <h1>Loading...</h1>
     }
   
     return (
         <>
-        <Header />
         <div className="account">
         <h1 className="account__title">Your Saved PDFs</h1>
-        {pdfs.map((pdf, index) => {
-            const newFileName = pdf.file_name;
-            const splitFileName = newFileName.split("-")
-            console.log(splitFileName)
+        <div className="account__grid">
+        {pdfs.length === 0 ? <h2 className="account__error">You have no saved pdfs yet</h2> : pdfs.map((pdf, index) => {
             return (
-                <a className="account__pdfs" href={pdf.file_link} key={index} >
-                    {splitFileName[0]}
+              <div className="account__pdf" key={index}>
+                <a className="account__link" href={pdf.file_link}  target="_blank" rel="noreferrer">
+                    {pdf.file_name}
                 </a>
+                <iframe className="account__preview" src={pdf.file_link}></iframe>
+                </div>
             )
         })}
+        </div>
          </div>
          </>
     )

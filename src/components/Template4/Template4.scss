@@ -3,7 +3,6 @@
     background-color: white;
     height: 49.5mm;
     width: 210mm;
-    font-size: 1rem;
     border: 1px solid black;
     display: grid;
     grid-template-columns: 52.5mm 157.5mm;
@@ -30,6 +29,7 @@
   
     &__vocabulary {
         font-family: "Print Lined", sans-serif;
+        font-size: 1.75rem;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: clip;
