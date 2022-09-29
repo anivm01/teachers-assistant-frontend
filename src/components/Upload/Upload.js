@@ -36,7 +36,6 @@ function Upload({
     setUploadError(false);
     setTemplateContents([...templateContents, newContent]);
     setUploadFields([...uploadFields, uploadFields.length]);
-    console.log(imgFileName);
     setImageURL("")
     setImgFileName("")
     setTextInput("")
@@ -72,7 +71,7 @@ function Upload({
             onChange={onVocabularyChange}
           />
         </label>
-        <h2 className="upload__title">Click the plus button to make your template</h2>  
+        <h2 className="upload__title">Click the plus button to add this pair to the list</h2>  
           <input className="upload__submit" type="submit" />
           {uploadError && (
             <p className="upload__error">

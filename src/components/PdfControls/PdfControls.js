@@ -23,10 +23,9 @@ function PdfControls({
   return (
     <div className="pdf-controls">
         <div className="pdf-controls__buttons">
-          {isLoggedIn && <button className="pdf-controls__button" onClick={handleUploadPDF}>
+      {isLoggedIn && <button className="pdf-controls__button" onClick={handleUploadPDF}>
       <img className="pdf-controls__icon" src={uploadIcon} alt="print" />
-      Save
-      </button>}
+      Save</button>}
       <button
         className="pdf-controls__button"
         onClick={() => {

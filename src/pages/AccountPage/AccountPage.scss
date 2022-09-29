@@ -1,0 +1,42 @@
+@use "../../partials/breakpoints"as*;
+
+.account {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    @include tablet {
+        padding: 2rem;
+    }
+    @include desktop {
+        margin: 0 auto;
+        max-width: 63.75rem;
+    }
+    &__grid {
+        margin-top: 1rem;
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: 1fr;
+        @include tablet {
+            grid-template-columns: 1fr 1fr;
+        }
+        @include desktop {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+    &__link {
+        font-size: 1.5rem;
+        text-decoration: none;
+        margin: 1rem 0;
+    }
+    &__pdf {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__preview {
+        max-width: 300px;
+        height: 300px;
+    }
+}

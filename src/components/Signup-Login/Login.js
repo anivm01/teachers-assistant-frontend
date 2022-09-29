@@ -30,7 +30,6 @@ function Login( {setLoginVisible, setIsLoggedIn, isLoggedIn}) {
     .then((response)=>{
       setIsLoggedIn(true)
       sessionStorage.setItem("authToken", response.data.token)
-      // setLoginVisible(false)
     })
     .catch((error)=>{
       setIsLoginError(true)
@@ -38,15 +37,9 @@ function Login( {setLoginVisible, setIsLoggedIn, isLoggedIn}) {
     })
 
   }
-  console.log(isLoggedIn)
   
   return (
     <main className="auth">
-      <div className="auth__header">
-      <button className="auth__close" onClick={()=>setLoginVisible(false)}>
-        <img className="auth__close-icon" src={closeIcon} alt="print" />
-      </button>
-      </div>
         <form onSubmit={handleSubmit} className="auth__form" >
         <h1 className="auth__title">Login</h1>
           <label className="auth__label" htmlFor="email">

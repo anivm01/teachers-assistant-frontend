@@ -2,7 +2,6 @@
     background-color: white;
     height: 148.5mm;
     width: 105mm;
-    font-size: 1.25rem;
     border: 1px solid black;
     display: flex;
     justify-content: center;
@@ -32,6 +31,7 @@
     }
     &__vocabulary {
         font-family: "Print Regular", sans-serif;
+        font-size: 2rem;
         transform: rotate(-180deg);
         margin: 1rem;
         text-align: center;

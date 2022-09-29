@@ -1,12 +1,39 @@
 @use "../../partials/breakpoints" as*;
 .header {
     padding: .5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include tablet {
+      padding: 1rem 2rem;
+    }
+    @include desktop {
+      max-width: 63.75rem;
+      padding: 1rem 0;
+      margin: 0 auto;
+    }
     &__logo {
     height: 3rem;
     width: 3rem;
     @include tablet {
       height: 4rem;
       width: 4rem;
+    }
+  }
+  &__link {
+    padding: .8rem 1rem .5rem 1rem;
+    margin: 1rem;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: filmotype-austin,sans-serif;
+    background-color: #E6F6FC;
+    color: #29369D;
+    border-radius: 2.1875rem;
+    border: none;
+    &:hover {
+      background-color: #29369D;
+      color: #e6f6fc;
     }
   }
     

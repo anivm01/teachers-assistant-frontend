@@ -15,17 +15,8 @@ function TemplateSelectionPage({isLoggedIn}) {
 
   return (
     <>
-      <Header />
       <div className="select">
-        {templateContents.length > 0 && (
-          <div className="select__animated">
-            {" "}
-            <UploadsSoFar
-              templateContents={templateContents}
-              setTemplateContents={setTemplateContents}
-            />
-          </div>
-        )}
+        
         <div className="select__upload">
           <h2 className="select__title">Choose an image and type a word or a phrase</h2>
           <Upload
@@ -34,6 +25,10 @@ function TemplateSelectionPage({isLoggedIn}) {
             templateContents={templateContents}
             setTemplateContents={setTemplateContents}
           />
+          <UploadsSoFar
+              templateContents={templateContents}
+              setTemplateContents={setTemplateContents}
+            />
         </div>
         {templateContents.length > 0 && (
           <div className="select__animated">
