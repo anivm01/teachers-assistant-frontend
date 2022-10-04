@@ -35,20 +35,19 @@ function Signup( {setSignupVisible, setIsLoggedIn, isLoggedIn}) {
     .then(()=>{
       setIsSignedUp(true)
       console.log("signed up")
-      setSignupVisible(false)
+      setIsSignedUp(true)
     })
     .catch(error => {
       console.log(error)
     })
   }
+
+  if (isSignedUp) {
+    return <Navigate to="/login" />
+  }
   
   return (
     <main className="auth">
-      <div className="auth__header">
-      <button className="auth__close" onClick={()=>setSignupVisible(false)}>
-        <img className="auth__close-icon" src={closeIcon} alt="print" />
-      </button>
-      </div>
         <form onSubmit={handleSubmit} className="auth__form" >
         <h1 className="auth__title">Sign Up</h1>
           <label className="auth__label" htmlFor="name">
