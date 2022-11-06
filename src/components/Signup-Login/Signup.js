@@ -1,7 +1,6 @@
 import { useState } from "react"
 import axios from "axios";
 import "./Signup-Login.scss"
-import closeIcon from "../../assets/svg/close-icon.svg";
 import { Navigate } from "react-router-dom";
 
 

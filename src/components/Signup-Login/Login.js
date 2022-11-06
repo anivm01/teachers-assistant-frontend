@@ -1,7 +1,6 @@
 import { useState } from "react"
 import axios from "axios";
 import "./Signup-Login.scss"
-import closeIcon from "../../assets/svg/close-icon.svg";
 import { Navigate } from "react-router-dom";
 
 
@@ -53,6 +52,7 @@ function Login( {setLoginVisible, setIsLoggedIn, isLoggedIn}) {
             <input type="submit" className="auth__submit" name="submit"/>
         </form>
         {isLoggedIn && <Navigate to="/account"/>}
+        {isLoginError && <h2>{errorMessage}</h2>}
     </main>
   )
 }

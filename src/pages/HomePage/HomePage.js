@@ -1,5 +1,4 @@
 import "./HomePage.scss";
-import taLogo from "../../assets/svg/teachers-assistant-logo.svg";
 import heroImg from "../../assets/svg/hero-img.svg";
 import step1 from "../../assets/svg/step1.svg";
 import step2 from "../../assets/svg/step2.svg";

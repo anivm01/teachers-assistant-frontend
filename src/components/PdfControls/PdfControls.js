@@ -2,8 +2,6 @@ import "./PdfControls.scss";
 import downloadIcon from "../../assets/svg/download.svg";
 import uploadIcon from "../../assets/svg/upload.svg";
 import closeIcon from "../../assets/svg/close-icon.svg";
-import html2pdf from "html2pdf.js/dist/html2pdf.min";
-const worker = html2pdf();
 
 function PdfControls({
   handleGetPDF,

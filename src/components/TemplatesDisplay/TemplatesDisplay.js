@@ -1,16 +1,12 @@
 import "./TemplatesDisplay.scss";
 import html2pdf from "html2pdf.js/dist/html2pdf.min";
 import { useRef, useState } from "react";
-import closeIcon from "../../assets/svg/close-icon.svg";
 import Template1 from "../../components/Template1/Template1";
 import Template2 from "../../components/Template2/Template2";
 import Template3 from "../../components/Template3/Template3";
 import Template4 from "../../components/Template4/Template4";
 import Template5 from "../../components/Template5/Template5";
 import Template6 from "../../components/Template6/Template6";
-import printIcon from "../../assets/svg/printer-icon.svg";
-import downloadIcon from "../../assets/svg/download.svg";
-import uploadIcon from "../../assets/svg/upload.svg";
 import axios from "axios";
 import PdfControls from "../PdfControls/PdfControls";
 
@@ -27,8 +23,6 @@ function TemplatesDisplay({ templateContents, isLoggedIn }) {
   const [smallSizePreview, setSmallSizePreview] = useState(true);
   const [pdfName, setPdfName] = useState("yourPDF");
   const [pdfNameError, setPdfNameError] = useState(false)
-  const [pdfFile, setPdfFile] = useState(null)
-  const [twoLines, setTwoLines] = useState(false);
 
   const closePrintPreview = () => {
     setSmallSizePreview(true);
@@ -39,11 +33,6 @@ function TemplatesDisplay({ templateContents, isLoggedIn }) {
     setDisplayTemplate5(false);
     setDisplayTemplate6(false);
     setPdfName("");
-    setPdfFile(null);
-  };
-
-  const changeNumberOfLines = () => {
-    setTwoLines((current) => !current);
   };
 
   const previewFullSizeOption1 = () => {

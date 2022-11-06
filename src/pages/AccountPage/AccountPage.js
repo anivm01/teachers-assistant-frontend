@@ -37,7 +37,7 @@ function AccountPage( isLoggedIn) {
                 <a className="account__link" href={pdf.file_link}  target="_blank" rel="noreferrer">
                     {pdf.file_name}
                 </a>
-                <iframe className="account__preview" src={pdf.file_link}></iframe>
+                <iframe className="account__preview" src={pdf.file_link} title={pdf.file_name}></iframe>
                 </div>
             )
         })}

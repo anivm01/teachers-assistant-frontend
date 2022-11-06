@@ -3,7 +3,6 @@ import "./TemplateSelectionPage.scss";
 import Upload from "../../components/Upload/Upload";
 import TemplatesDisplay from "../../components/TemplatesDisplay/TemplatesDisplay";
 import UploadsSoFar from "../../components/UploadsSoFar/UploadsSoFar";
-import Header from "../../components/Header/Header";
 
 function TemplateSelectionPage({isLoggedIn}) {
   const [templateContents, setTemplateContents] = useState([]);
