@@ -27,7 +27,7 @@ function Signup( {setSignupVisible, setIsLoggedIn, isLoggedIn}) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    axios.post("http://localhost:5000/users/signup", {
+    axios.post("http://api.teachersassistant.site/users/signup", {
       email: event.target.email.value,
       name: event.target.name.value,
       password: event.target.password.value

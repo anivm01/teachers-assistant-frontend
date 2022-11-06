@@ -9,7 +9,7 @@ function AccountPage( isLoggedIn) {
   
     useEffect(() => {
       const token = sessionStorage.getItem("authToken");
-      axios.get("http://localhost:5000/pdf", {
+      axios.get("http://api.teachersassistant.site/pdf", {
         headers: {
           Authorization: `Bearer ${token}`,
         },})

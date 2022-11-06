@@ -101,7 +101,7 @@ function TemplatesDisplay({ templateContents, isLoggedIn }) {
       const formData = new FormData();      
       formData.append("file", file, `${pdfName}.pdf`)
       const token = sessionStorage.getItem("authToken")
-      return axios.post("http://localhost:5000/pdf", formData, {
+      return axios.post("http://api.teachersassistant.site/pdf", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           "Authorization": `Bearer ${token}`
