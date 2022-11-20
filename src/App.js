@@ -9,7 +9,7 @@ import Login from './components/Signup-Login/Login';
 import Signup from './components/Signup-Login/Signup';
 
 function App() {
-const [isLoggedIn, setIsLoggedIn] = useState(false);
+const [isLoggedIn, setIsLoggedIn] = useState(JSON.parse(sessionStorage.getItem("loggedIn")));
 
   return (
     <BrowserRouter>

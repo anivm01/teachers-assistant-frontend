@@ -1,7 +1,7 @@
 import { useState } from "react"
 import axios from "axios";
 import "./Signup-Login.scss"
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import API_URL from "../../utils/api"
 
 
@@ -12,6 +12,7 @@ function Login( {setLoginVisible, setIsLoggedIn, isLoggedIn}) {
   const [isLoginError, setIsLoginError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
+  const redirect = useNavigate()
 
   const changeEmail = (event) => {
     setEmailInput(event.target.value)
@@ -31,6 +32,8 @@ function Login( {setLoginVisible, setIsLoggedIn, isLoggedIn}) {
     .then((response)=>{
       setIsLoggedIn(true)
       sessionStorage.setItem("authToken", response.data.token)
+      sessionStorage.setItem("loggedIn", "true")
+      redirect("/account")
     })
     .catch((error)=>{
       setIsLoginError(true)
@@ -53,7 +56,6 @@ function Login( {setLoginVisible, setIsLoggedIn, isLoggedIn}) {
           </label>
             <input type="submit" className="auth__submit" name="submit"/>
         </form>
-        {isLoggedIn && <Navigate to="/account"/>}
         {isLoginError && <h2>{errorMessage}</h2>}
     </main>
   )

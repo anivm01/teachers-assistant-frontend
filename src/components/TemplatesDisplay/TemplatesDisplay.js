@@ -9,6 +9,7 @@ import Template5 from "../../components/Template5/Template5";
 import Template6 from "../../components/Template6/Template6";
 import axios from "axios";
 import PdfControls from "../PdfControls/PdfControls";
+import API_URL from "../../utils/api"
 
 function TemplatesDisplay({ templateContents, isLoggedIn }) {
   const docToPrint = useRef(null);
@@ -23,6 +24,8 @@ function TemplatesDisplay({ templateContents, isLoggedIn }) {
   const [smallSizePreview, setSmallSizePreview] = useState(true);
   const [pdfName, setPdfName] = useState("yourPDF");
   const [pdfNameError, setPdfNameError] = useState(false)
+  const [uploadSuccess, setUploadSuccess] = useState(false)
+  const [uploadError, setUploadError] = useState(false)
 
   const closePrintPreview = () => {
     setSmallSizePreview(true);
@@ -87,19 +90,22 @@ function TemplatesDisplay({ templateContents, isLoggedIn }) {
     const pdfToUpload = docToPrint.current
      worker.from(pdfToUpload).outputPdf("blob").then(result =>{
       const file = new File([result], pdfName, {type:"application/pdf"})
-      const formData = new FormData();      
+
+      const formData = new FormData();    
+      
       formData.append("file", file, `${pdfName}.pdf`)
+      
       const token = sessionStorage.getItem("authToken")
-      return axios.post("http://api.teachersassistant.site/pdf", formData, {
+      return axios.post(`${API_URL}/pdf`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           "Authorization": `Bearer ${token}`
         }
       })
     }).then(response=>{
-      console.log(response)
+      setUploadSuccess(true)
     }).catch(error=>{
-      console.log(error)
+      setUploadError(true)
     })
   }
 
@@ -251,6 +257,10 @@ function TemplatesDisplay({ templateContents, isLoggedIn }) {
         pdfNameError={pdfNameError}
         closePrintPreview={closePrintPreview}
         isLoggedIn={isLoggedIn}
+        uploadSuccess={uploadSuccess}
+        setUploadSuccess={setUploadSuccess}
+        uploadError={uploadError}
+        setUploadError={setUploadError}
         />
           <div className="select__preview">
             <div ref={docToPrint} className="select__full-view">

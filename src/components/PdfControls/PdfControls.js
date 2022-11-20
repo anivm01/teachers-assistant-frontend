@@ -11,29 +11,49 @@ function PdfControls({
   setPdfNameError,
   pdfNameError,
   closePrintPreview,
-  isLoggedIn
+  isLoggedIn,
+  uploadSuccess,
+  setUploadSuccess,
+  uploadError,
+  setUploadError
 }) {
   const changePdfName = (event) => {
     setPdfNameError(false);
     setPdfName(event.target.value);
   };
 
+  if(uploadSuccess) {
+    setTimeout(()=>{
+      setUploadSuccess(false)
+    }, 3000)
+  }
+  if(uploadError) {
+    setTimeout(()=>{
+      setUploadError(false)
+    }, 3000)
+  }
+
   return (
     <div className="pdf-controls">
+      <div className="pdf-controls__container">
+        {uploadSuccess && <p className="pdf-controls__message">Saved! 😀</p>}
+        {uploadError && <p className="pdf-controls__message">Something went wrong 😥</p>}
         <div className="pdf-controls__buttons">
-      {isLoggedIn && <button className="pdf-controls__button" onClick={handleUploadPDF}>
-      <img className="pdf-controls__icon" src={uploadIcon} alt="print" />
-      Save</button>}
-      <button
-        className="pdf-controls__button"
-        onClick={() => {
-          handleGetPDF(pdfName);
-        }}
-      >
+          {isLoggedIn && <button className="pdf-controls__button" onClick={handleUploadPDF}>
+          <img className="pdf-controls__icon" src={uploadIcon} alt="print" />
+          Save</button>}
+        
+        <button
+          className="pdf-controls__button"
+          onClick={() => {
+            handleGetPDF(pdfName);
+          }}
+        >
         <img className="pdf-controls__icon" src={downloadIcon} alt="print" />
         Download
-      </button>
-        </div>
+        </button>
+        </div> 
+      </div>
       <div className="pdf-controls__name">
         {pdfNameError && <h2>Pdf needs a name!</h2>}
         <input

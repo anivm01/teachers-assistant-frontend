@@ -1,39 +1,67 @@
 @use "../../partials/breakpoints" as*;
 .header {
+  width: 100%;
+  background-color: rgba(47,167,224,1);
+  box-shadow: inset 0 0 2rem -.5rem #E6F6FC;
+  &__container{
     padding: .5rem 1rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    text-align: center;
+    flex-wrap: wrap;  
     @include tablet {
       padding: 1rem 2rem;
+      flex-wrap: nowrap;
+      justify-content: space-between;
     }
     @include desktop {
       max-width: 63.75rem;
       padding: 1rem 0;
       margin: 0 auto;
     }
+  }
     &__logo {
     height: 3rem;
     width: 3rem;
+    margin-right: 1rem;
     @include tablet {
       height: 4rem;
       width: 4rem;
     }
   }
+  &__nav{
+    display: flex;
+    margin: 1rem 0;
+    width: 100%;
+    justify-content: space-around;
+    @include tablet {
+      max-width: 40%;
+    }
+  }
   &__link {
     padding: .8rem 1rem .5rem 1rem;
-    margin: 1rem;
     text-decoration: none;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-family: filmotype-austin,sans-serif;
     background-color: #E6F6FC;
     color: #29369D;
-    border-radius: 2.1875rem;
+    box-shadow: inset 0 0 2rem -0.5rem rgba(166,248,255,1);
+    box-shadow: 0 0 2rem -.5rem rgba(166,248,255,1);
     border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     &:hover {
       background-color: #29369D;
       color: #e6f6fc;
+    }
+    @include tablet {
+      font-size: 1.25rem;
+    }
+    @include desktop {
+      font-size: 1.5rem;
     }
   }
     

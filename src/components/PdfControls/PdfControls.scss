@@ -13,6 +13,15 @@
         max-width: 63.75rem;
         margin: 0 auto;
     }
+    &__container {
+        position: relative;
+    }
+    &__message{
+        position: absolute;
+        z-index: 1;
+        top: -3rem;
+        left: .5rem;
+    }
     &__buttons{
         margin-right: auto;
         display: flex;

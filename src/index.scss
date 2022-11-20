@@ -12,13 +12,13 @@ body {
   color: #29369D;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  // background-color: #E6F6FC;
-  background: linear-gradient(180deg, rgba(166,248,255,1) 0%, rgba(47,167,224,1) 100%);
+  background-color: rgba(166,248,255,1);
+  //background: linear-gradient(180deg, rgba(166,248,255,1) 0%, rgba(47,167,224,1) 100%);
   background-attachment: fixed;
   min-height: 100vh;
 }
 h1 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-family: filmotype-austin,sans-serif;
   font-weight: 800;
   font-style: normal;

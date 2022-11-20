@@ -9,19 +9,15 @@ function HomePage() {
   return (
     <>
     <main className="home">
-      {/* <img className="home__logo" src={taLogo} alt="teachers assistant logo" /> */}
-      <h1>Teacher's Assistant</h1>
-      <Link className="home__cta" to="/templates">Get Started</Link>
-      {/* <div className="home__auth">
-      <button className="home__cta" onClick={()=>setLoginVisible(true)}>Login</button>
-      <button className="home__cta" onClick={()=>setSignupVisible(true)}>Sign Up</button>
-      </div> */}
       <section className="home__hero">
-        <img
-          className="home__img"
-          src={heroImg}
-          alt="teacher using flashcards with students"
-        />
+        <div className="home__hook">
+          <Link className="home__cta" to="/templates">Get Started</Link>
+          <img
+            className="home__img"
+            src={heroImg}
+            alt="teacher using flashcards with students"
+          />
+        </div>
         <div className="home__steps">
         <div className="home__step">
           <h2 className="home__step-text">Upload words and pictures</h2>
@@ -40,7 +36,7 @@ function HomePage() {
           <h2 className="home__step-text home__step-text--align-right">Choose your favorite template</h2>
         </div>
         <div className="home__step home__step--last">
-          <h2 className="home__step-text home__step-text--last">Dowload your pdf and print it</h2>
+          <h2 className="home__step-text home__step-text--last">Dowload your pdf and print or login to save it</h2>
           <img
             className="home__step-img home__step-img--last"
             src={step3}
