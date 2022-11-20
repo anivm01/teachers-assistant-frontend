@@ -2,6 +2,8 @@ import { useState } from "react"
 import axios from "axios";
 import "./Signup-Login.scss"
 import { Navigate } from "react-router-dom";
+import API_URL from "../../utils/api"
+
 
 
 function Signup( {setSignupVisible, setIsLoggedIn, isLoggedIn}) {
@@ -26,7 +28,7 @@ function Signup( {setSignupVisible, setIsLoggedIn, isLoggedIn}) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    axios.post("http://api.teachersassistant.site/users/signup", {
+    axios.post(`${API_URL}/users/signup`, {
       email: event.target.email.value,
       name: event.target.name.value,
       password: event.target.password.value
