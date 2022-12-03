@@ -5,8 +5,7 @@ import HomePage from './pages/HomePage/HomePage';
 import { useState } from 'react';
 import AccountPage from './pages/AccountPage/AccountPage';
 import Header from './components/Header/Header';
-import Login from './components/Signup-Login/Login';
-import Signup from './components/Signup-Login/Signup';
+import Auth from './pages/Auth/Auth';
 
 function App() {
 const [isLoggedIn, setIsLoggedIn] = useState(JSON.parse(sessionStorage.getItem("loggedIn")));
@@ -17,8 +16,8 @@ const [isLoggedIn, setIsLoggedIn] = useState(JSON.parse(sessionStorage.getItem("
     <Routes>
       <Route path='/' element={<HomePage />} />
       <Route path='/templates' element={<TemplateSelectionPage isLoggedIn={isLoggedIn}/>}/>
-      <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />}/>
-      <Route path='/signup' element={<Signup setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />}/>
+      <Route path='/login' element={<Auth newUser={false} setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />}/>
+      <Route path='/signup' element={<Auth newUser={true} />}/>
       <Route path='/account' element={<AccountPage isLoggedIn={isLoggedIn} />}/>
     </Routes>
     </BrowserRouter>

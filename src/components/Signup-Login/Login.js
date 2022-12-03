@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import API_URL from "../../utils/api"
 
 
-function Login( {setLoginVisible, setIsLoggedIn, isLoggedIn}) {
+function Login( { setIsLoggedIn }) {
 
   const [emailInput, setEmailInput] = useState("")
   const [passwordInput, setPasswordInput] = useState("")
@@ -25,21 +25,38 @@ function Login( {setLoginVisible, setIsLoggedIn, isLoggedIn}) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    axios.post(`${API_URL}/users/login`, {
+    if (!event.target.email.value || !event.target.password.value) {
+      setIsLoginError(true)
+      setErrorMessage("Make sure to fill out all the fields")
+      return
+    }
+
+    const userInfo = {
       email: event.target.email.value,
       password: event.target.password.value
-    })
-    .then((response)=>{
-      setIsLoggedIn(true)
-      sessionStorage.setItem("authToken", response.data.token)
-      sessionStorage.setItem("loggedIn", "true")
-      redirect("/account")
-    })
-    .catch((error)=>{
-      setIsLoginError(true)
-      setErrorMessage(error)
-    })
+    }
 
+    const login = async () => {
+      try {
+          const response = await axios.post(`${API_URL}/users/login`, userInfo);
+          if (!response.data) {
+            setIsLoginError(true)
+            setErrorMessage("Something went wrong. Check your email and password and try again!")
+            return
+          }
+          setIsLoggedIn(true)
+          sessionStorage.setItem("authToken", response.data.token)
+          sessionStorage.setItem("loggedIn", "true")
+          redirect("/account")
+      } catch (error) {
+        setIsLoginError(true)
+        if(!error.response.data.message){
+          setErrorMessage("Something went wrong. Try again later")
+        }
+        setErrorMessage(error.response.data.message)
+      }
+    };
+    login();
   }
   
   return (
@@ -48,15 +65,16 @@ function Login( {setLoginVisible, setIsLoggedIn, isLoggedIn}) {
         <h1 className="auth__title">Login</h1>
           <label className="auth__label" htmlFor="email">
             Email
-            <input className="auth__input" type="email" name="email" onChange={changeEmail} value={emailInput}/>
           </label>
+          <input className="auth__input" type="email" name="email" onChange={changeEmail} value={emailInput}/>
           <label className="auth__label" htmlFor="password">
             Password
-            <input className="auth__input" type="password" name="password" onChange={changePassword} value={passwordInput}/>
           </label>
-            <input type="submit" className="auth__submit" name="submit"/>
+          <input className="auth__input" type="password" name="password" onChange={changePassword} value={passwordInput}/>
+          {isLoginError && <h2 className="auth__error">{errorMessage}</h2>}
+          <input type="submit" className="auth__submit" name="submit"/>
         </form>
-        {isLoginError && <h2>{errorMessage}</h2>}
+        
     </main>
   )
 }

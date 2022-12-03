@@ -1,4 +1,5 @@
 @use "./partials/breakpoints"as*;
+@use "./partials/colors"as*;
 
 *, *::after, *::before {
   box-sizing: border-box;
@@ -12,7 +13,7 @@ body {
   color: #29369D;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgba(166,248,255,1);
+  background-color: $light;
   //background: linear-gradient(180deg, rgba(166,248,255,1) 0%, rgba(47,167,224,1) 100%);
   background-attachment: fixed;
   min-height: 100vh;
