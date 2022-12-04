@@ -1,35 +1,49 @@
 @use "../../partials/breakpoints" as*;
+@use "../../partials/colors" as*;
+
 .header {
+  position: sticky;
+  top:0;
+  z-index: 5;
   width: 100%;
-  background-color: rgba(47,167,224,1);
-  box-shadow: inset 0 0 2rem -.5rem #E6F6FC;
+  background-color: $medium;
+  text-align: center;
+  padding: 1rem;
+  border-bottom: 4px solid $darkest;
+  border-bottom-left-radius: 2.1875rem;
+  border-bottom-right-radius: 2.1875rem;
+  // box-shadow: inset 0 0 2rem -.5rem $pale;
   &__container{
-    padding: .5rem 1rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
     flex-wrap: wrap;  
-    @include tablet {
-      padding: 1rem 2rem;
-      flex-wrap: nowrap;
-      justify-content: space-between;
-    }
-    @include desktop {
-      max-width: 63.75rem;
-      padding: 1rem 0;
-      margin: 0 auto;
-    }
   }
-    &__logo {
-    height: 3rem;
+  &__logo {
+    height: 2rem;
     width: 3rem;
     margin-right: 1rem;
-    @include tablet {
-      height: 4rem;
-      width: 4rem;
+  }
+  &__title{
+    color: $pale;
+    font-size: 1.75rem;
+    text-shadow: 2px 2px $darkest;
+    margin: .5rem 0 .25rem;
+    display: none;
+    @include mid-mobile {
+      display: block;
     }
   }
+  &__mobile-nav{
+    background: none;
+    border: none;
+  }
+  &__hamburger {
+    height: 2rem;
+    width: 2rem;
+  }
+
   &__nav{
     display: flex;
     margin: 1rem 0;

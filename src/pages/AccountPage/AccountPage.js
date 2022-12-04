@@ -5,7 +5,12 @@ import "./AccountPage.scss"
 import API_URL from "../../utils/api"
 import AccountError from "../../components/AccountError/AccountError";
 
-function AccountPage( isLoggedIn) {
+function AccountPage( {isLoggedIn, isNavVisible, setIsNavVisible}) {
+  useEffect(()=>{
+    if(isNavVisible){
+      setIsNavVisible(false)
+    }
+  }, [])
     const [isError, setIsError] = useState(false)
     const [pdfs, setPdfs] = useState([]);
   

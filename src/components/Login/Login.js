@@ -1,6 +1,5 @@
 import { useState } from "react"
 import axios from "axios";
-import "./Signup-Login.scss"
 import { useNavigate } from "react-router-dom";
 import API_URL from "../../utils/api"
 
@@ -12,7 +11,7 @@ function Login( { setIsLoggedIn }) {
   const [isLoginError, setIsLoginError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const redirect = useNavigate()
+  const navigate = useNavigate()
 
   const changeEmail = (event) => {
     setEmailInput(event.target.value)
@@ -47,7 +46,7 @@ function Login( { setIsLoggedIn }) {
           setIsLoggedIn(true)
           sessionStorage.setItem("authToken", response.data.token)
           sessionStorage.setItem("loggedIn", "true")
-          redirect("/account")
+          navigate("/account")
       } catch (error) {
         setIsLoginError(true)
         if(!error.response.data.message){
@@ -60,22 +59,19 @@ function Login( { setIsLoggedIn }) {
   }
   
   return (
-    <main className="auth">
-        <form onSubmit={handleSubmit} className="auth__form" >
-        <h1 className="auth__title">Login</h1>
-          <label className="auth__label" htmlFor="email">
-            Email
-          </label>
-          <input className="auth__input" type="email" name="email" onChange={changeEmail} value={emailInput}/>
-          <label className="auth__label" htmlFor="password">
-            Password
-          </label>
-          <input className="auth__input" type="password" name="password" onChange={changePassword} value={passwordInput}/>
-          {isLoginError && <h2 className="auth__error">{errorMessage}</h2>}
-          <input type="submit" className="auth__submit" name="submit"/>
-        </form>
-        
-    </main>
+    <form onSubmit={handleSubmit} className="auth__form" >
+    <h1 className="auth__title">Login</h1>
+      <label className="auth__label" htmlFor="email">
+        Email
+      </label>
+      <input className={`auth__input ${emailInput ? "auth__input--filled" : ""}`} type="email" name="email" onChange={changeEmail} value={emailInput}/>
+      <label className="auth__label" htmlFor="password">
+        Password
+      </label>
+      <input className={`auth__input ${passwordInput ? "auth__input--filled" : ""}`} type="password" name="password" onChange={changePassword} value={passwordInput}/>
+      {isLoginError && <h2 className="auth__error">{errorMessage}</h2>}
+      <input type="submit" className="auth__submit" name="submit"/>
+    </form>
   )
 }
 

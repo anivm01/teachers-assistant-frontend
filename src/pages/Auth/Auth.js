@@ -1,12 +1,21 @@
-import Login from "../../components/Signup-Login/Login";
-import Signup from "../../components/Signup-Login/Signup";
+import { useEffect, useState } from "react";
+import Login from "../../components/Login/Login";
+import Signup from "../../components/Signup/Signup";
+import SwitchButton from "../../components/SwitchButton/SwitchButton";
 import "./Auth.scss";
 
-function Auth( { newUser, setIsLoggedIn }) {
+function Auth( { setIsLoggedIn, isNavVisible, setIsNavVisible }) {
+  const [newUser, setNewUser] = useState(false)
+  useEffect(()=>{
+    if(isNavVisible){
+      setIsNavVisible(false)
+    }
+  }, [])
   return (
-    <>
-    {newUser ? <Signup /> : <Login setIsLoggedIn={setIsLoggedIn} /> }
-    </>
+    <main className="auth">
+      <SwitchButton setNewUser={setNewUser}/>
+    {newUser ? <Signup setIsLoggedIn={setIsLoggedIn}/> : <Login setIsLoggedIn={setIsLoggedIn} /> }
+    </main>
   )
 }
 

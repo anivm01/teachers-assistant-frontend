@@ -1,0 +1,112 @@
+@use "../../partials/breakpoints"as*;
+@use "../../partials/colors"as*;
+
+.auth {
+ padding: 2rem 1rem;
+ min-height: 100vh;
+ color: $pale;
+ @include tablet {
+    padding: 2rem;
+ }
+ &__header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    @include desktop {
+        padding: 0;
+        margin: 0 auto;
+        max-width: 45rem;
+    }
+ }
+ &__title {
+    width: 100%;
+    text-align: center;
+    color: $pale;
+    font-size: 1.75rem;
+    text-shadow: 2px 2px $darkest;
+ }
+ &__close {
+    background: transparent;
+    border: none;
+ }
+ &__close-icon {
+    height: 2rem;
+    width: 2rem;
+    @include tablet {
+        height: 3rem;
+        width: 3rem;
+    }
+ }
+ &__form {
+    margin: 2rem auto 0 auto;
+    width: 100%;
+    padding: 1rem;
+    background-color: $medium;
+    border: 1px solid $darkest;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 31.25rem;
+ }
+ &__label{
+    width: 100%;
+    font-family: filmotype-austin, sans-serif;
+    font-weight: 400;  
+    font-size: 1.5rem;
+    color: $pale;
+    text-shadow: 2px 2px $darkest;
+ }
+ &__input {
+    font-family: filmotype-austin, sans-serif;
+    color: $pale;
+    font-weight: 400; 
+    padding: 1rem;
+    margin: .5rem 0 1rem; 
+    font-size: 1.5rem;
+    border: none;
+    border-top: 2px solid $pale;
+    border-radius: 35px;
+    //background-color: $dark;
+    background: linear-gradient(180deg, #0081DD 10%, #313998 100%);
+    width: 100%;
+    filter: blur(3px);
+    &:focus {
+        outline-color: transparent;
+        outline: none;
+        filter: none;
+    }
+    &:active {
+        outline-color: transparent;
+        outline: none;
+        filter: none;
+    }
+    &--filled {
+        filter: none;
+    }
+ }
+ &__submit {
+    padding: .8rem 1rem .5rem 1rem;
+    margin: 1.25rem 0;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: filmotype-austin,sans-serif;
+    width: 50%;
+    background-color: $pale;
+    color: $darkest;
+    border-radius: 2.1875rem;
+    border: none;
+    border-bottom: 2px solid $darkest;
+    &:hover {
+      background-color: #e6f6fc;
+    }
+ }
+ &__error {
+    margin: 1rem;
+    text-align: center;
+    &::before{
+        content: "❌";
+        margin-right: 1rem;
+    }
+ }
+}

@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./TemplateSelectionPage.scss";
 import Upload from "../../components/Upload/Upload";
 import TemplatesDisplay from "../../components/TemplatesDisplay/TemplatesDisplay";
 import UploadsSoFar from "../../components/UploadsSoFar/UploadsSoFar";
 
-function TemplateSelectionPage({isLoggedIn}) {
+function TemplateSelectionPage({isLoggedIn, isNavVisible, setIsNavVisible}) {
   const [templateContents, setTemplateContents] = useState([]);
   const [uploadFields, setUploadFields] = useState([0]);
+  useEffect(()=>{
+    if(isNavVisible){
+      setIsNavVisible(false)
+    }
+  }, [])
 
   if (!uploadFields) {
     return <h2>Loading...</h2>;

@@ -1,13 +1,24 @@
-import { NavLink } from "react-router-dom"
-import "./LoggedInNav.scss"
+import { NavLink, useNavigate } from "react-router-dom"
 
-function LoggedInNav( {handleLogOut} ) {
+function LoggedInNav( {setIsLoggedIn} ) {
+  const  navigate = useNavigate()
+  const handleLogOut = () => {
+    sessionStorage.setItem("loggedIn", JSON.stringify(false))
+    setIsLoggedIn(false)
+    navigate("/")
+  }
   return (
-    <div className="header__nav">
-        <NavLink className="header__link" to="/account">Your PDFs</NavLink>
-        <NavLink className="header__link" to="/templates">Templates</NavLink>
-        <button onClick={handleLogOut} className="header__link"> Logout </button>          
-    </div>
+      <ul className="nav__list">
+        <li className="nav__item">
+          <NavLink className="nav__link" to="/account">Saved PDFs</NavLink>
+        </li>
+        <li className="nav__item">
+          <NavLink className="nav__link" to="/templates">New PDF</NavLink>
+        </li>
+        <li className="nav__item">
+          <button onClick={handleLogOut} className="nav__link">Logout</button>  
+        </li>
+      </ul>
   )
 }
 

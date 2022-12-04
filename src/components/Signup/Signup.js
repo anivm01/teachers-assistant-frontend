@@ -1,12 +1,11 @@
 import { useState } from "react"
 import axios from "axios";
-import "./Signup-Login.scss"
 import { useNavigate } from "react-router-dom";
 import API_URL from "../../utils/api"
 
 
 
-function Signup() {
+function Signup({setIsLoggedIn}) {
   
   const navigate = useNavigate();
   const [isSignupError, setIsSignupError] = useState(false);
@@ -48,7 +47,11 @@ function Signup() {
           setErrorMessage("Something went wrong. Try again later!")
           return
         } 
-        navigate("/login")
+        console.log("signedUp")
+        setIsLoggedIn(true)
+          sessionStorage.setItem("authToken", response.data.token)
+          sessionStorage.setItem("loggedIn", "true")
+          navigate("/account")
       } catch (error) {
         setIsSignupError(true)
         if(!error.response.data.message){
@@ -58,28 +61,27 @@ function Signup() {
       }
     };
     signUp();
+    
   }
   
   return (
-    <main className="auth">
-        <form onSubmit={handleSubmit}  className="auth__form" >
-        <h1 className="auth__title">Sign Up</h1>
-          <label className="auth__label" htmlFor="name">
-            Name
-          </label>
-          <input className="auth__input" type="text" name="name" onChange={handleSignupInputChange} value={signupInputs.name}/>
-          <label className="auth__label" htmlFor="email">
-            Email
-          </label>
-          <input className="auth__input" type="email" name="email" onChange={handleSignupInputChange} value={signupInputs.email}/>
-          <label className="auth__label" htmlFor="password">
-            Password
-          </label>
-          <input className="auth__input" type="password" name="password" onChange={handleSignupInputChange} value={signupInputs.password}/>
-          {isSignupError && <h2 className="auth__error">{errorMessage}</h2>}
-          <input type="submit" className="auth__submit" name="submit"/>
-        </form>
-    </main>
+    <form onSubmit={handleSubmit}  className="auth__form" >
+    <h1 className="auth__title">Sign Up</h1>
+      <label className="auth__label" htmlFor="name">
+        Name
+      </label>
+      <input className={`auth__input ${signupInputs.name ? "auth__input--filled" : ""}`} type="text" name="name" onChange={handleSignupInputChange} value={signupInputs.name}/>
+      <label className="auth__label" htmlFor="email">
+        Email
+      </label>
+      <input className={`auth__input ${signupInputs.email ? "auth__input--filled" : ""}`} type="email" name="email" onChange={handleSignupInputChange} value={signupInputs.email}/>
+      <label className="auth__label" htmlFor="password">
+        Password
+      </label>
+      <input className={`auth__input ${signupInputs.password ? "auth__input--filled" : ""}`} type="password" name="password" onChange={handleSignupInputChange} value={signupInputs.password}/>
+      {isSignupError && <h2 className="auth__error">{errorMessage}</h2>}
+      <input type="submit" className="auth__submit" name="submit"/>
+    </form>
   )
 }
 

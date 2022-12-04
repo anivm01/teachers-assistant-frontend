@@ -4,8 +4,15 @@ import step1 from "../../assets/svg/step1.svg";
 import step2 from "../../assets/svg/step2.svg";
 import step3 from "../../assets/svg/step3.svg";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
-function HomePage() {
+function HomePage({isNavVisible, setIsNavVisible}) {
+  useEffect(()=>{
+    if(isNavVisible){
+      setIsNavVisible(false)
+    }
+  }, [])
+  
   return (
     <>
     <main className="home">
