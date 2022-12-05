@@ -42,14 +42,6 @@
   }
   &__hero {
     margin-top: 2rem;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    @include desktop {
-        max-width: 63.75rem;
-        flex-direction: row;
-        align-items: center;
-    }
   }
   &__hook {
     text-align: center;
@@ -72,6 +64,7 @@
   &__title {
     text-align: center;
     padding: 1rem;
+    width: 100%;
   }
   &__step {
     display: flex;
@@ -84,12 +77,7 @@
     box-shadow: inset 0 0 2rem -0.5rem $pale;
     box-shadow: 0 0 2rem -.5rem $darkest;
     height: fit-content;
-    @include tablet {
-      margin: 2rem;
-    }
-    @include desktop {
-      max-width: 20rem;
-    }
+    max-width: 37rem;
   }
   &__step-img {
     height: 8rem;

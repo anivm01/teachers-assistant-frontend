@@ -3,10 +3,13 @@ import "./TemplateSelectionPage.scss";
 import Upload from "../../components/Upload/Upload";
 import TemplatesDisplay from "../../components/TemplatesDisplay/TemplatesDisplay";
 import UploadsSoFar from "../../components/UploadsSoFar/UploadsSoFar";
+import visibilityOn from "../../assets/svg/visibility_on.svg";
+import visibilityOff from "../../assets/svg/visibility_off.svg";
 
 function TemplateSelectionPage({isLoggedIn, isNavVisible, setIsNavVisible}) {
   const [templateContents, setTemplateContents] = useState([]);
   const [uploadFields, setUploadFields] = useState([0]);
+  const [isListVisible, setIsListVisible] = useState(true)
   useEffect(()=>{
     if(isNavVisible){
       setIsNavVisible(false)
@@ -20,7 +23,6 @@ function TemplateSelectionPage({isLoggedIn, isNavVisible, setIsNavVisible}) {
   return (
     <>
       <div className="select">
-        
         <div className="select__upload">
           <h2 className="select__title">Choose an image and type a word or a phrase</h2>
           <Upload
@@ -29,10 +31,15 @@ function TemplateSelectionPage({isLoggedIn, isNavVisible, setIsNavVisible}) {
             templateContents={templateContents}
             setTemplateContents={setTemplateContents}
           />
-          <UploadsSoFar
+          <button className="select__list" 
+          onClick={()=>{setIsListVisible((current)=>!current)}}>
+            {isListVisible ? `Hide List` : "Show List"}
+            <img className="select__visibility" src={isListVisible ? visibilityOff : visibilityOn} />
+            </button>
+          {isListVisible && <UploadsSoFar
               templateContents={templateContents}
               setTemplateContents={setTemplateContents}
-            />
+            />}
         </div>
         {templateContents.length > 0 && (
           <div className="select__animated">

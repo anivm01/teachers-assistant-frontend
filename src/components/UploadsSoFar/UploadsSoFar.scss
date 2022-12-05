@@ -1,14 +1,14 @@
 @use "../../partials/breakpoints" as *;
+@use "../../partials/colors"as*;
 
 .so-far {
-  margin: 1rem ;
   padding: 1rem;
-  color: #29369D;
-  // border-radius: 2.1875rem;
-  // background-color: rgba(47, 167, 224, 1) ;
-  // background-color: rgba(166,248,255,1);
-  box-shadow: inset 0 0 2rem -0.5rem #e6f6fc;
-  box-shadow: 0 0 2rem -.5rem rgba(47,167,224,1);
+  color: $darkest;
+  background-color: $medium;
+  // box-shadow: inset 0 0 2rem -0.5rem #e6f6fc;
+  // box-shadow: 0 0 2rem -.5rem $darkest;
+  border-bottom-right-radius: 2.1875rem;
+  border-bottom-left-radius: 2.1875rem;
   @include tablet {
     padding: 2rem;
     margin: 1rem;
@@ -19,27 +19,29 @@
   }
   &__title {
     margin: 1rem 0;
-    color: #29369D;
+    color: $darkest;
   }
   &__list {
-    justify-self: center;
     list-style: none;
     padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
   }
   &__item {
-    display: grid;
-    grid-template-columns: 1fr 1fr 0.5fr;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 0.5rem 0;
-    gap: 0.5rem;
+    width: 47%;
+    background-color: white;
+    padding: 1rem;
+    display: flex;
   }
-  &__record {
-    font-size: 1rem;
-    margin-right: 1rem;
-    @include tablet {
-      font-size: 1.5rem;
-    }
+  &__card {
+    background-color: white;
+    text-align: center;
+    padding-right: 1rem;
+  }
+  &__image {
+    width: 70%;
+    margin-bottom: 1rem;
   }
   &__remove {
     height: 2rem;
@@ -47,9 +49,12 @@
     border-radius: 50%;
     border: none;
     background-image: url("../../assets/svg/remove-icon.svg");
+    background-color: transparent;
     background-repeat: no-repeat;
-    justify-self: center;
     color: transparent;
     cursor: pointer;
+    position: relative;
+    top: -1.5rem;
+    left: -1.5rem;
   }
 }

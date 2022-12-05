@@ -51,7 +51,7 @@ function HomePage({isNavVisible, setIsNavVisible}) {
             alt="teacher celebrating"
           />
         </div>
-        <Link className="home__cta" to="/templates">Let's Go!</Link>
+        {/* <Link className="home__cta" to="/templates">Let's Go!</Link> */}
         </div>
       </section>
     </main>

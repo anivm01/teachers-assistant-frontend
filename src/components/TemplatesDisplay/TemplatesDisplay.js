@@ -177,7 +177,8 @@ function TemplatesDisplay({ templateContents, isLoggedIn }) {
             <div className="select__blur select__blur--bottom"></div>
             <button className="select__button" onClick={previewFullSizeOption3}>
               Preview Template
-            </button>          </div>
+            </button>          
+            </div>
           <div className="select__wrapper">
           <h3 className="select__description">Writing Large</h3>
             <div className="select__blur select__blur--top"></div>

@@ -36,20 +36,20 @@ function Upload({
     setUploadError(false);
     setTemplateContents([...templateContents, newContent]);
     setUploadFields([...uploadFields, uploadFields.length]);
-    setImageURL("")
-    setImgFileName("")
-    setTextInput("")
-    event.target.reset()
+    setImageURL("");
+    setImgFileName("");
+    setTextInput("");
+    event.target.reset();
   };
 
   return (
     <>
-    <form onSubmit={onSubmit} className="upload">
-      <label className="upload__image-label">
-        Image: <span className="upload__file-name">{imgFileName}</span>
+      <form onSubmit={onSubmit} className="upload">
+        <label className="upload__image-label">
+          {/* Image: <span className="upload__file-name">{imgFileName}</span> */}
           <img
             className="upload__custom-image-input"
-            src={addImage}
+            src={imageURL || addImage}
             alt="add new icon"
           />
           <input
@@ -60,27 +60,27 @@ function Upload({
             accept="image/png, image/jpg, image/gif, image/jpeg"
           />
         </label>
-        <div className="upload__bottom">
-        <label className="upload__text-label">
-          Vocabulary:
-          <input
-            className="upload__text-input"
-            type="text"
-            name="vocabulary"
-            value={textInput || ""}
-            onChange={onVocabularyChange}
-          />
-        </label>
-        <h2 className="upload__title">Click the plus button to add this pair to the list</h2>  
-          <input className="upload__submit" type="submit" />
-          {uploadError && (
-            <p className="upload__error">
-              "You must input both an image and text for these templates"
-            </p>
-    )}
-        </div>
-    </form>
-    
+          <label className="upload__text-label">
+            {/* Vocabulary: */}
+            <input
+              className="upload__text-input"
+              type="text"
+              name="vocabulary"
+              value={textInput || ""}
+              onChange={onVocabularyChange}
+              placeholder="Enter a word"
+            />
+          </label>
+          <div className="upload__bottom">
+            <label className="upload__label">Add pair</label>
+            <input className="upload__submit" type="submit" />
+            {uploadError && (
+              <p className="upload__error">
+                "You must input both an image and text for these templates"
+              </p>
+            )}
+          </div>
+      </form>
     </>
   );
 }
