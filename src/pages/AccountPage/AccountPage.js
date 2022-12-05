@@ -42,6 +42,13 @@ function AccountPage( {isLoggedIn, isNavVisible, setIsNavVisible}) {
     if (pdfs.length===0) {
         return <h1>Loading...</h1>
     }
+    const sliceTitle = (string) => {
+      const array = string.split("-")
+      if(!array[1]){
+        return array[0]
+      }
+      return array[1]
+    }
   
     return (
         <>
@@ -52,7 +59,7 @@ function AccountPage( {isLoggedIn, isNavVisible, setIsNavVisible}) {
             return (
               <div className="account__pdf" key={index}>
                 <a className="account__link" href={API_URL+pdf.file_link}  target="_blank" rel="noreferrer">
-                    {pdf.file_name}
+                    {sliceTitle(pdf.file_name)}
                 </a>
                 <iframe title={pdf.file_name} className="account__preview" src={API_URL+pdf.file_link} ></iframe>
               </div>
