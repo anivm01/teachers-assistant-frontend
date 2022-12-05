@@ -1,41 +1,21 @@
 @use "../../partials/breakpoints" as *;
 @use "../../partials/colors" as *;
 
-@keyframes scale-in-center {
-    0% {
-      transform: scale(0);
-      opacity: 1;
-    }
-    50% {
-      transform: scale(1);
-      opacity: 1;
-    }
-    70% {
-        transform: scale(1.2);
-      opacity: 1;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-      }
-  }
 
 .select {
   padding: 1rem;
   @include tablet {
     padding: 2rem;
+    margin: 1rem;
   }
-    @include desktop {
-        max-width: 63.75rem;
-        margin: 0 auto;
-    }
+  @include desktop {
+    max-width: 40rem;
+    margin: 1rem auto;
+  }
     &__title {
         text-align: center;
         margin: 1rem auto;
     }
-    // &__animated {
-    //    animation: scale-in-center 1s linear both;
-    // }
     &__upload {
       padding: 1rem;
     }
@@ -49,6 +29,7 @@
       color: $pale;
       border: none;
       width: 100%;
+      cursor: pointer;
     }
     &__visibility {
       height: 1.5rem;

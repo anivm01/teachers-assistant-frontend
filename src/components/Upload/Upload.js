@@ -5,8 +5,8 @@ import React, { useState } from "react";
 function Upload({
   templateContents,
   setTemplateContents,
-  uploadFields,
-  setUploadFields,
+  // uploadFields,
+  // setUploadFields,
   index,
 }) {
   const [textInput, setTextInput] = useState("");
@@ -35,7 +35,7 @@ function Upload({
     };
     setUploadError(false);
     setTemplateContents([...templateContents, newContent]);
-    setUploadFields([...uploadFields, uploadFields.length]);
+    // setUploadFields([...uploadFields, uploadFields.length]);
     setImageURL("");
     setImgFileName("");
     setTextInput("");
@@ -72,8 +72,9 @@ function Upload({
             />
           </label>
           <div className="upload__bottom">
-            <label className="upload__label">Add pair</label>
+            <label className="upload__label">Add pair
             <input className="upload__submit" type="submit" />
+            </label>
             {uploadError && (
               <p className="upload__error">
                 "You must input both an image and text for these templates"

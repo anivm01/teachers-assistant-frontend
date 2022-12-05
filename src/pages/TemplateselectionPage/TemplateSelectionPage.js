@@ -8,7 +8,7 @@ import visibilityOff from "../../assets/svg/visibility_off.svg";
 
 function TemplateSelectionPage({isLoggedIn, isNavVisible, setIsNavVisible}) {
   const [templateContents, setTemplateContents] = useState([]);
-  const [uploadFields, setUploadFields] = useState([0]);
+  // const [uploadFields, setUploadFields] = useState([0]);
   const [isListVisible, setIsListVisible] = useState(true)
   useEffect(()=>{
     if(isNavVisible){
@@ -16,9 +16,9 @@ function TemplateSelectionPage({isLoggedIn, isNavVisible, setIsNavVisible}) {
     }
   }, [])
 
-  if (!uploadFields) {
-    return <h2>Loading...</h2>;
-  }
+  // if (!uploadFields) {
+  //   return <h2>Loading...</h2>;
+  // }
 
   return (
     <>
@@ -26,8 +26,8 @@ function TemplateSelectionPage({isLoggedIn, isNavVisible, setIsNavVisible}) {
         <div className="select__upload">
           <h2 className="select__title">Choose an image and type a word or a phrase</h2>
           <Upload
-            uploadFields={uploadFields}
-            setUploadFields={setUploadFields}
+            // uploadFields={uploadFields}
+            // setUploadFields={setUploadFields}
             templateContents={templateContents}
             setTemplateContents={setTemplateContents}
           />
@@ -41,17 +41,14 @@ function TemplateSelectionPage({isLoggedIn, isNavVisible, setIsNavVisible}) {
               setTemplateContents={setTemplateContents}
             />}
         </div>
+      </div>
         {templateContents.length > 0 && (
-          <div className="select__animated">
-            <h2 className="select__title">Choose your template</h2>
             <TemplatesDisplay
               className={`${templateContents.length > 0 && "select__animated"}`}
               templateContents={templateContents}
               isLoggedIn={isLoggedIn}
             />
-          </div>
         )}
-      </div>
     </>
   );
 }

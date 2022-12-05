@@ -112,6 +112,8 @@ function TemplatesDisplay({ templateContents, isLoggedIn }) {
   return (
     <>
       {smallSizePreview && (
+        <>
+        <h2 className="select__title">Choose your template</h2>
         <div className="select__display">
           <div className="select__wrapper">
           <h3 className="select__description">Large Flashcards</h3>
@@ -246,6 +248,7 @@ function TemplatesDisplay({ templateContents, isLoggedIn }) {
             </button>
           </div>
         </div>
+        </>
       )}
       {displayTemplate1 && (
         <>
