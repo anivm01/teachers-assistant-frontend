@@ -26,8 +26,9 @@ function HomePage({isNavVisible, setIsNavVisible}) {
           />
         </div>
         <div className="home__steps">
+          <h2 className="home__title">What can the Teacher's Assistant do for you?</h2>
         <div className="home__step">
-          <h2 className="home__step-text">Upload words and pictures</h2>
+          <h3 className="home__step-text">You can upload any words and pictures you want to use</h3>
           <img
             className="home__step-img"
             src={step1}
@@ -40,16 +41,17 @@ function HomePage({isNavVisible, setIsNavVisible}) {
             src={step2}
             alt="teacher working at computer"
           />
-          <h2 className="home__step-text home__step-text--align-right">Choose your favorite template</h2>
+          <h3 className="home__step-text home__step-text--align-right">You can choose from a selection of template for worksheets or flashcards</h3>
         </div>
         <div className="home__step home__step--last">
-          <h2 className="home__step-text home__step-text--last">Dowload your pdf and print or login to save it</h2>
+          <h3 className="home__step-text home__step-text--last">You can dowload your pdf or login to save it to your account</h3>
           <img
             className="home__step-img home__step-img--last"
             src={step3}
             alt="teacher celebrating"
           />
         </div>
+        <Link className="home__cta" to="/templates">Let's Go!</Link>
         </div>
       </section>
     </main>

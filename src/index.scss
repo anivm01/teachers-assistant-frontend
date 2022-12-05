@@ -19,7 +19,7 @@ body {
   min-height: 100vh;
 }
 h1 {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-family: filmotype-austin,sans-serif;
   font-weight: 800;
   font-style: normal;
@@ -33,7 +33,7 @@ h2 {
   font-family: filmotype-austin,sans-serif;
   font-weight: 800;
   font-style: normal;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   @include tablet {
     font-size: 1.75rem;
   }
@@ -42,7 +42,7 @@ h3 {
   margin: 0;
   color:#29369D;
   font-family: filmotype-austin,sans-serif;
-  font-size: 1rem;
+  font-size: 1.25rem;
   @include tablet {
     font-size: 1.5rem;
   }
