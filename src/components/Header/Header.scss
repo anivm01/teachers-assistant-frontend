@@ -12,6 +12,10 @@
   border-bottom: 4px solid $darkest;
   border-bottom-left-radius: 2.1875rem;
   border-bottom-right-radius: 2.1875rem;
+  @include desktop {
+    position: static;
+    border-radius: 0;
+  }
   &__container{
     display: flex;
     justify-content: space-between;
@@ -24,6 +28,10 @@
     width: 3rem;
     margin-right: 1rem;
     cursor: pointer;
+    @include desktop {
+      height: 3rem;
+      width: 4.5rem;
+    }
   }
   &__title{
     color: $pale;
@@ -34,10 +42,16 @@
     @include mid-mobile {
       display: block;
     }
+    @include desktop {
+      font-size: 2.25rem;
+    }
   }
   &__mobile-nav{
     background: none;
     border: none;
+    @include desktop {
+      visibility: hidden;
+    }
   }
   &__hamburger {
     height: 2rem;

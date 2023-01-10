@@ -1,0 +1,33 @@
+.small-writing-template {
+    width: 100%;
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__left {
+        width: 25%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__right {
+        width: 75%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-right: 1rem;
+    }
+    &__image {
+        max-height: 50%;
+        max-width: 50%;
+    }
+  
+    &__vocabulary {
+        font-family: "Print Lined", sans-serif;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+    }
+  }

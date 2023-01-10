@@ -10,10 +10,10 @@ body {
   font-family: filmotype-austin,sans-serif;
   font-weight: bold;
   font-style: normal;
-  color: #29369D;
+  color: $darkest;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: $light;
+  background-color: $pale;
   //background: linear-gradient(180deg, rgba(166,248,255,1) 0%, rgba(47,167,224,1) 100%);
   background-attachment: fixed;
   min-height: 100vh;

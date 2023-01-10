@@ -1,0 +1,20 @@
+.game-cards-template {
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    &__image {
+        max-height: 50%;
+        max-width: 50%;
+    }
+    &__vocabulary {
+        margin: 4px;
+        font-family: "Print Regular", sans-serif;
+        text-align: center;
+    }
+  }

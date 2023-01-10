@@ -76,7 +76,7 @@ function TemplatesDisplay({ templateContents, isLoggedIn }) {
       margin: 0,
       filename: pdfName,
       html2canvas: { scale: 3 },
-      jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+      jsPDF: { unit: "px", hotfixes: ["px_scaling"], format: "a4", orientation: "portrait" },
     };
     worker.from(pdf).set(opt).save();
     setPdfName("");

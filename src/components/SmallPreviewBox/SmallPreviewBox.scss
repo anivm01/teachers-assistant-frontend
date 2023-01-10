@@ -1,0 +1,66 @@
+@use "../../fonts/fonts";
+@use "../../partials/colors" as *;
+@use "../../partials/breakpoints" as *;
+
+.small-preview-box {
+    background-color: $medium;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__description {
+        color: #29369D;
+        text-align: center;
+    }
+    
+    &__option {
+    height: 297px;
+    margin: 0 auto;
+    padding: 1rem 0;
+    overflow: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-overflow-scrolling: touch;
+    // overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+        display: none;
+        }
+    }
+
+  &__button {
+    margin-top: .75rem;
+    font-family: filmotype-austin,sans-serif;
+    font-size: 1rem;
+    border: none;
+    padding: .5rem .75rem;
+    border-radius: 35px;
+    color: #E6F6FC;
+    background-color: $medium;
+    box-shadow: inset 0 0 10px #E6F6FC;
+    cursor: pointer;
+    @include tablet {
+      font-size: 1.5rem;
+    }
+    &:hover {
+      color:$medium;
+      background-color: #E6F6FC;
+      box-shadow: inset 0 0 10px $medium;
+    }
+  }
+  
+  &__blur {
+    height: 1.2rem;
+    width: 210px;
+    position: sticky;
+    z-index: 1;
+    &--top {
+        margin-bottom: -1rem;
+        background: linear-gradient(180deg, $medium  0%,  rgba(255,255,255,0) 100%);
+    }  
+    &--bottom {
+        margin-top: -1rem;
+        background: linear-gradient(180deg, rgba(255,255,255,0) 0%, $medium 100%);
+    }
+  }
+}

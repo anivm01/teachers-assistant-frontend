@@ -1,0 +1,39 @@
+@use "../../fonts/fonts";
+
+.medium-flashcards-template {
+    background-color: white;
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    border: 1px solid black;
+    &__left {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__right {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__image {
+        max-height: 70%;
+        max-width: 70%;
+        transform: rotate(-90deg);
+    }
+    &__divider {
+        height: 100%;
+        border-left: 1px solid black;
+        width: 0;
+    }
+    &__vocabulary {
+        font-family: "Print Regular", sans-serif;
+        transform: rotate(90deg);
+        margin: 1rem;
+        text-align: center;
+    }
+  }

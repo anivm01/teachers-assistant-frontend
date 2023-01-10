@@ -2,7 +2,8 @@
 @use "../../partials/colors"as*;
 
 .switch-button {
-    background: rgba(230, 246, 252, 0.56);
+    //background: rgba(230, 246, 252, 0.56);
+    background-color: $medium;
     margin: 0 auto;
     border-radius: 30px;
     overflow: hidden;
@@ -54,7 +55,7 @@
   
         &:before {
           content: "";
-          background: $pale;
+          background: $light;
           height: 100%;
           width: 100%;
           position: absolute;

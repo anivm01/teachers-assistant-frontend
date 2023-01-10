@@ -92,8 +92,16 @@
             background: linear-gradient(180deg, rgba(255,255,255,0) 0%, $medium 100%);
         }
       }
+      &__preview{
+        overflow: scroll;
+        width: 100%;
+        padding: 1rem;
+        @include tablet {
+          padding: 2rem;
+        }
+      }
       &__full-view {
-        width: 210mm;
+        width: 210px;
         margin: 0 auto 3rem auto;
         background-color: white;
         &--3{
