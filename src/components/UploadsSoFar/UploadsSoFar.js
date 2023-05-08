@@ -1,5 +1,5 @@
 import "./UploadsSoFar.scss"
-import { Carousel } from '@trendyol-js/react-carousel';
+// import { Carousel } from '@trendyol-js/react-carousel';
 
 
 function UploadsSoFar( { templateContents, setTemplateContents } ) {
