@@ -1,6 +1,8 @@
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import "./styles/globals.scss";
 import { Lilita_One } from "next/font/google";
+import { WordListProvider } from "./context/WordListContext";
 
 const lilita = Lilita_One({ weight: "400", subsets: ["latin"] });
 
@@ -15,7 +17,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={lilita.className}>
         <Header />
-        <main>{children}</main>
+        <WordListProvider>
+          <main>{children}</main>
+        </WordListProvider>
+        <Footer />
       </body>
     </html>
   );

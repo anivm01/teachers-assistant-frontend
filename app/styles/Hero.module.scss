@@ -51,7 +51,8 @@
     }
 
     &_main {
-        background-color: $light;
+        background-color: $pale;
+        border: 1px solid $darkest;
         color: $darkest;
     }
 }

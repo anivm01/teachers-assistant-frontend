@@ -1,0 +1,72 @@
+@use "./partials/breakpoints" as*;
+@use "./partials/colors" as*;
+
+
+.section {
+    @include desktop {
+        max-width: 80rem;
+        margin: 0 auto;
+
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+
+    @include tablet {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.image {
+    width: 8rem;
+    height: 8rem;
+
+    @include desktop {
+        width: 14rem;
+        height: 14rem;
+    }
+}
+
+.arrow {
+    width: 6rem;
+    rotate: 90deg;
+
+    @include tablet {
+        rotate: 0deg;
+    }
+}
+
+.heading {
+    font-size: 2rem;
+    font-weight: 300;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.title {
+    font-weight: 300;
+}
+
+.cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.25rem;
+    border-radius: 50%;
+    background-color: $light;
+    color: $darkest;
+    text-align: center;
+    padding: 2rem;
+
+    @include tablet {
+        font-size: 1.5rem;
+    }
+}

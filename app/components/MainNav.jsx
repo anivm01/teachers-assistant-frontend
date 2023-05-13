@@ -44,7 +44,7 @@ export default function MainNav() {
         </li>
         <li>
           <Link href="/" className={styles.link}>
-            Log In/Sign Up
+            Login/Signup
           </Link>
         </li>
       </ul>
