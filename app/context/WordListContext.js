@@ -15,7 +15,7 @@ export const useWordListUpdate = () => {
 };
 
 export const WordListProvider = ({ children }) => {
-  const [wordList, setWordList] = useState("en");
+  const [wordList, setWordList] = useState([]);
 
   const changeWordList = (newWordList) => {
     setWordList(newWordList);

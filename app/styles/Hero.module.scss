@@ -39,11 +39,11 @@
 .cta {
     max-width: 15rem;
     text-decoration: none;
-    font-size: 1.25rem;
+    font-size: 1rem;
     border-radius: 2rem;
     background-color: $darkest;
     color: $pale;
-    padding: .8rem 1rem;
+    padding: .5rem .8rem;
     text-align: center;
 
     @include tablet {
@@ -84,10 +84,10 @@
 }
 
 .greeting {
-    font-size: 2rem;
+    font-size: 1.25rem;
     font-weight: 300;
 
     &_description {
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
 }

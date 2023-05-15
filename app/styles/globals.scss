@@ -9,7 +9,6 @@
 
 body {
     margin: 0;
-    font-family: Vardana, sans-serif;
     font-weight: bold;
     font-style: normal;
     color: $darkest;
@@ -17,6 +16,8 @@ body {
     -moz-osx-font-smoothing: grayscale;
     background-color: $pale;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 h1 {
@@ -34,10 +35,14 @@ h2 {
     margin: 0;
     font-weight: 800;
     font-style: normal;
-    font-size: 1.5rem;
+    font-size: 1rem;
 
     @include tablet {
-        font-size: 1.75rem;
+        font-size: 1.25rem;
+    }
+
+    @include tablet {
+        font-size: 1.5rem;
     }
 }
 
