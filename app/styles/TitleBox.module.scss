@@ -1,0 +1,32 @@
+@use "./partials/breakpoints" as*;
+@use "./partials/colors" as*;
+
+.box {
+    max-width: 80rem;
+    padding: 1rem;
+    background-color: $light;
+    display: flex;
+    align-items: center;
+}
+
+.image {
+    max-width: 15%;
+    height: fit-content;
+    object-fit: contain;
+    margin-right: 2rem;
+
+    @include tablet {
+        max-width: 10%;
+    }
+}
+
+.title {
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 1rem;
+
+    @include tablet {
+        font-size: 1.25rem;
+        font-weight: normal;
+    }
+}

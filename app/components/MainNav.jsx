@@ -25,10 +25,10 @@ export default function MainNav() {
       <ul
         className={`${styles.menu_desktop}
     ${isOpen ? styles.menu_mobile : ""}`}
-        onClick={handleToggle}
+        onClick={() => setIsOpen(false)}
       >
         <li>
-          <Link href="/new-list" className={styles.link}>
+          <Link href="/create-list" className={styles.link}>
             New Word List
           </Link>
         </li>
