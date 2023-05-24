@@ -24,14 +24,14 @@ export const WordListProvider = ({ children }) => {
   const addImagesToList = (event) => {
     //collect uploaded files
     const files = event.target.files;
-
     //store uploaded files into context
     const uploads = [];
     for (let file of files) {
       const upload = {
         file: file,
         file_name: file.name,
-        word: " ",
+        word: "",
+        src: URL.createObjectURL(file),
       };
       uploads.push(upload);
     }

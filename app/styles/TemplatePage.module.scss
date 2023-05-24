@@ -1,0 +1,47 @@
+.page {
+    width: 210mm;
+    height: 297mm;
+    overflow: scroll;
+    margin: 0 auto;
+    border: 4px solid red;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+    color: black;
+}
+
+.large {
+    height: 100%;
+    width: 100%;
+    font-size: 4rem;
+}
+
+.medium {
+    width: 100%;
+    height: 50%;
+    font-size: 3rem;
+}
+
+.small {
+    height: 50%;
+    width: 50%;
+    font-size: 2rem;
+}
+
+.writing_large {
+    height: 12.5%;
+    width: 100%;
+    font-size: 3rem;
+}
+
+.writing_small {
+    height: 10%;
+    width: 100%;
+    font-size: 28px;
+}
+
+.game {
+    width: 33.3%;
+    height: 25%;
+    font-size: 28px;
+}
