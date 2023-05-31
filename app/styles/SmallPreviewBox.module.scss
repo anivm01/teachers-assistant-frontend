@@ -1,0 +1,70 @@
+@use "./partials/colors" as *;
+@use "./partials/breakpoints" as *;
+
+.box {
+    background-color: $light;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.description {
+    color: $darkest;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.option {
+    height: 297px;
+    width: 210px;
+    margin: 0 auto;
+    overflow: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-overflow-scrolling: touch;
+
+    // overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.button {
+    margin-top: .75rem;
+    text-decoration: none;
+    border: none;
+    padding: .5rem 1rem;
+    border-radius: 35px;
+    color: $pale;
+    background-color: $light;
+    box-shadow: inset 0 0 10px $pale;
+    cursor: pointer;
+
+    @include tablet {
+        font-size: 1.5rem;
+    }
+
+    &:hover {
+        color: $light;
+        background-color: $pale;
+        box-shadow: inset 0 0 10px $light;
+    }
+}
+
+.blur {
+    height: 1.2rem;
+    width: 210px;
+    position: sticky;
+    z-index: 1;
+
+    &_top {
+        margin-bottom: -1rem;
+        background: linear-gradient(180deg, $light 0%, rgba(255, 255, 255, 0) 100%);
+    }
+
+    &_bottom {
+        margin-top: -1rem;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, $light 100%);
+    }
+}

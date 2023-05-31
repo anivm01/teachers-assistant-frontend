@@ -5,7 +5,6 @@ import { Lilita_One } from "next/font/google";
 import { WordListProvider } from "./context/WordListContext";
 
 const lilita = Lilita_One({ weight: "400", subsets: ["latin"] });
-
 export const metadata = {
   title: "Teachers's Assistant",
   description:
@@ -17,9 +16,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={lilita.className}>
         <Header />
-        <WordListProvider>
-          <main>{children}</main>
-        </WordListProvider>
+        <WordListProvider>{children}</WordListProvider>
         <Footer />
       </body>
     </html>

@@ -1,28 +1,41 @@
 .item {
-    height: 100%;
-    width: 100%;
+    background-color: white;
+    color: black;
     display: flex;
-    align-items: flex-end;
-    gap: 16px;
-    padding: 1rem;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
     border: 1px solid black;
 }
 
 .image_box {
-    position: relative;
     height: 100%;
     width: 25%;
-    border-radius: 2px solid green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .image {
     object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.text {
+    flex-basis: 75%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 .vocabulary {
-    flex-basis: 75%;
-    display: inline-block;
-    overflow: hidden;
     font-size: inherit;
     margin: 0;
+}
+
+.lines {
+    width: 100%;
+    object-fit: fill;
+    max-width: 100%;
 }

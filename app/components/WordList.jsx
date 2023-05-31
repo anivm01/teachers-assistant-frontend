@@ -8,8 +8,6 @@ export default function WordList() {
   const wordList = useWordList();
   const updateWordList = useWordListUpdate();
 
-  console.log(wordList);
-
   return (
     <div className={style.container}>
       <label className={style.button}>

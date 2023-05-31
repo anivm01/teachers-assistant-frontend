@@ -33,10 +33,6 @@ export default function Steps() {
           <Image className={style.image} src={step3} alt="teacher celebrates" />
           <h3 className={style.title}>Get your PDF</h3>
         </div>
-        <Image src={arrow} alt="arrow" className={style.arrow} />
-        <Link href="/" className={`${style.cta}`}>
-          Try Now
-        </Link>
       </div>
     </section>
   );
